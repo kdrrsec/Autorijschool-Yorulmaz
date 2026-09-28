@@ -51,7 +51,7 @@ export const site = {
     /** Internationaal zonder + of spaties, bijvoorbeeld "31612345678" */
     whatsapp: null as string | null,
     email: null as string | null,
-    instagram: null as string | null,
+    instagram: 'https://www.instagram.com/autorijschoolyorulmaz/' as string | null,
   },
 
   /** Losse tarieven. Leeg laten zolang de prijzen niet bekend zijn. */
