@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0c121c;
+  --color-navy: #16213a;
+  --color-navy-soft: #243251;
+  --color-paper: #ffffff;
+  --color-stone: #f4f2ee;
+  --color-stone-deep: #e8e4dd;
+  --color-line: #e2ded7;
+  --color-muted: #5a6170;
+  --color-subtle: #8a909b;
+  --color-signal: #e5a83b;
+  --color-signal-deep: #8f5e0c;
+  --color-wa: #1f8f4e;
+
+  --font-display: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-source), 'Helvetica Neue', Arial, sans-serif;
+
+  --text-label: 0.75rem;
+  --text-label--letter-spacing: 0.16em;
+  --text-label--line-height: 1.2;
+
+  --ease-calm: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-stretch: 112%;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+  }
+}
+
+@utility font-wide {
+  font-stretch: 125%;
+}
+
+@utility label {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--text-label--letter-spacing);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 48rem) {
+    padding-inline: 2.5rem;
+  }
+
+  @media (min-width: 80rem) {
+    padding-inline: 3.5rem;
+  }
+}
+
+/* Subtiele reveal-animaties. Zonder JS of met reduced motion: direct zichtbaar. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.8s var(--ease-calm),
+    transform 0.8s var(--ease-calm);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal='image'] {
+  transform: none;
+  clip-path: inset(0 0 8% 0);
+  transition:
+    opacity 1s var(--ease-calm),
+    clip-path 1.1s var(--ease-calm);
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal],
+  .js [data-reveal='image'] {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
