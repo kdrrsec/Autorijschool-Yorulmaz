@@ -34,7 +34,7 @@ export function Hero() {
               data-reveal
               style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
             >
-              Zeker de weg op.
+              Met <span className="text-signal">vertrouwen</span> de weg op.
               <span className="mt-1 block text-navy/55">
                 Stap voor stap naar je <span className="relative whitespace-nowrap text-navy">rijbewijs.<span className="absolute inset-x-0 -bottom-1 h-2 -rotate-1 rounded-full bg-signal/80" aria-hidden /></span>
               </span>

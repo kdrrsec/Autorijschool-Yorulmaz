@@ -47,7 +47,7 @@ export function Intro() {
               opbouwen en na iedere les een eerlijk beeld van waar je staat.
             </p>
             <p className="mt-5 text-muted">
-              Het doel is niet alleen slagen, maar daarna ook met vertrouwen zelf de weg op gaan.
+              Het doel is niet alleen slagen, maar daarna ook zelfstandig en veilig blijven rijden.
             </p>
             <Link
               href="/#over-ons"
