@@ -55,7 +55,7 @@ export function LessonCar({ className = '' }: { className?: string }) {
       <path d="M36 128 H392" stroke="#16213a" strokeWidth="10" />
       <path d="M36 136 H392" stroke="#e3000f" strokeWidth="3" />
       <text x="224" y="119" textAnchor="middle" fontSize="15" fontWeight="900" fontStyle="italic" letterSpacing="1" fill="#16213a" fontFamily="Arial Black, Arial, sans-serif">
-        <tspan fill="#e3000f">Y</tspan>ORULMAZ
+        YORULMAZ
       </text>
 
       {/* Deur en details */}
