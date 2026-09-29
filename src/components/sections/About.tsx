@@ -32,7 +32,7 @@ export function About() {
           ) : (
             <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-signal-soft sm:aspect-[4/3] lg:aspect-[4/5]" data-reveal="image">
               <div className="absolute -top-10 -left-10 size-56 rounded-full bg-white/60" aria-hidden />
-              <div className="absolute inset-x-0 bottom-0 h-[18%] bg-[#f9d3d9]" aria-hidden />
+              <div className="absolute inset-x-0 bottom-0 h-[18%] bg-[#ffd3d7]" aria-hidden />
               <RoadSign className="absolute bottom-[14%] left-[8%] w-[13%]" />
               <Instructor className="absolute bottom-[4%] left-[20%] w-[34%] sm:w-[28%] lg:left-[18%] lg:w-[40%]" />
               <Student className="absolute right-[6%] bottom-[4%] w-[34%] sm:right-[16%] sm:w-[28%] lg:right-[4%] lg:w-[40%]" />

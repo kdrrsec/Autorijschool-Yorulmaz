@@ -28,7 +28,7 @@ export function LessonCar({ className = '' }: { className?: string }) {
       {/* Daklicht */}
       <g>
         <rect x="178" y="30" width="84" height="22" rx="6" fill="#16213a" />
-        <rect x="182" y="33" width="76" height="16" rx="4" fill="#d7263d" />
+        <rect x="182" y="33" width="76" height="16" rx="4" fill="#e3000f" />
         <text x="220" y="45" textAnchor="middle" fontSize="11" fontWeight="800" letterSpacing="1.5" fill="#ffffff" fontFamily="Arial, sans-serif">
           LESAUTO
         </text>
@@ -53,9 +53,9 @@ export function LessonCar({ className = '' }: { className?: string }) {
 
       {/* Streep en belettering */}
       <path d="M36 128 H392" stroke="#16213a" strokeWidth="10" />
-      <path d="M36 136 H392" stroke="#d7263d" strokeWidth="3" />
-      <text x="224" y="118" textAnchor="middle" fontSize="12" fontWeight="800" letterSpacing="2" fill="#16213a" fontFamily="Arial, sans-serif">
-        YORULMAZ
+      <path d="M36 136 H392" stroke="#e3000f" strokeWidth="3" />
+      <text x="224" y="119" textAnchor="middle" fontSize="15" fontWeight="900" fontStyle="italic" letterSpacing="1" fill="#16213a" fontFamily="Arial Black, Arial, sans-serif">
+        <tspan fill="#e3000f">Y</tspan>ORULMAZ
       </text>
 
       {/* Deur en details */}

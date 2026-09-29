@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="bg-ink pb-24 text-paper sm:pb-0">
       <div className="container-site grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-x-10">
         <div className="lg:col-span-5">
-          <Logo tone="light" />
+          <Logo className="h-14 sm:h-16" />
           <p className="mt-6 max-w-xs text-paper/60">
             Persoonlijke rijlessen in {site.region}.
           </p>

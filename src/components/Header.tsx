@@ -48,15 +48,13 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${
-        open
-          ? 'border-b border-line bg-paper'
-          : scrolled
-            ? 'border-b border-line bg-paper/95 shadow-[0_1px_12px_rgba(12,18,28,0.05)] backdrop-blur-sm'
-            : 'border-b border-transparent bg-paper'
+        scrolled || open
+          ? 'border-b border-white/10 bg-navy shadow-[0_4px_20px_rgba(12,18,28,0.25)]'
+          : 'border-b border-transparent bg-navy'
       }`}
     >
       <div className="container-site flex h-16 items-center justify-between gap-6 lg:h-[4.5rem]">
-        <Logo onClick={close} />
+        <Logo onClick={close} priority />
 
         <nav aria-label="Hoofdmenu" className="hidden lg:block">
           <ul className="flex items-center gap-1">
@@ -64,10 +62,10 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="group relative px-3.5 py-2 text-[0.95rem] font-medium text-ink/75 transition-colors hover:text-ink"
+                  className="group relative px-3.5 py-2 text-[0.95rem] font-medium text-white/75 transition-colors hover:text-white"
                 >
                   {item.label}
-                  <span className="absolute inset-x-3.5 -bottom-0.5 h-px origin-left scale-x-0 bg-ink transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                  <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-signal transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 </Link>
               </li>
             ))}
@@ -77,7 +75,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/#proefles"
-            className="group hidden min-h-11 items-center gap-2 rounded-xl bg-ink px-5 text-[0.925rem] font-semibold text-paper transition-colors hover:bg-navy-soft sm:inline-flex"
+            className="group hidden min-h-11 items-center gap-2 rounded-xl bg-signal px-5 text-[0.925rem] font-semibold text-white transition-colors hover:bg-signal-deep sm:inline-flex"
           >
             Proefles aanvragen
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -94,10 +92,10 @@ export function Header() {
           >
             <span className="relative block h-3 w-6">
               <span
-                className={`absolute left-0 h-[1.5px] w-6 bg-ink transition-transform duration-300 ${open ? 'top-[5px] rotate-45' : 'top-0'}`}
+                className={`absolute left-0 h-[1.5px] w-6 bg-white transition-transform duration-300 ${open ? 'top-[5px] rotate-45' : 'top-0'}`}
               />
               <span
-                className={`absolute left-0 h-[1.5px] bg-ink transition-all duration-300 ${open ? 'top-[5px] w-6 -rotate-45' : 'top-[10.5px] w-4'}`}
+                className={`absolute left-0 h-[1.5px] bg-white transition-all duration-300 ${open ? 'top-[5px] w-6 -rotate-45' : 'top-[10.5px] w-4'}`}
               />
             </span>
           </button>
@@ -135,7 +133,7 @@ export function Header() {
             <Link
               href="/#proefles"
               onClick={close}
-              className="flex min-h-13 items-center justify-between rounded-xl bg-ink px-5 font-semibold text-paper"
+              className="flex min-h-13 items-center justify-between rounded-xl bg-signal px-5 font-semibold text-white"
             >
               Proefles aanvragen
               <ArrowRight />

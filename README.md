@@ -23,6 +23,7 @@ Alle bedrijfsgegevens staan in **`src/content/site.ts`**. Wat daar op `null` of 
 | Pakketten | `packages` | Pakketkaarten; het voordeel wordt automatisch berekend |
 | Reviews | `reviews` | Eerste review groot, overige eronder |
 | Instructeur | `instructor` | Naam, ervaring, bio en foto in "Over ons" |
+| Logo | `public/images/logo.png` | Navbar en footer (bron: `YorulmazLogo.png`) |
 | Foto's | `photos.hero`, `photos.gallery` | Vervangt de grafische placeholders |
 
 Foto's plaats je in `public/images/` en verwijs je aan met bijv. `{ src: '/images/lesauto.jpg', alt: 'Lesauto van Autorijschool Yorulmaz in Doesburg', position: 'center 40%' }`.

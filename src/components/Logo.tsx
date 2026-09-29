@@ -1,27 +1,30 @@
+import Image from 'next/image'
 import Link from 'next/link'
+import logo from '../../public/images/logo.png'
 
-export function Logo({ tone = 'dark', onClick }: { tone?: 'dark' | 'light'; onClick?: () => void }) {
-  const main = tone === 'dark' ? 'text-ink' : 'text-paper'
+export function Logo({
+  className = 'h-11 lg:h-[3.25rem]',
+  onClick,
+  priority,
+}: {
+  className?: string
+  onClick?: () => void
+  priority?: boolean
+}) {
   return (
     <Link
       href="/#home"
       onClick={onClick}
       aria-label="Autorijschool Yorulmaz, naar de homepage"
-      className="group inline-flex flex-col leading-none"
+      className="inline-flex shrink-0 transition-opacity hover:opacity-90"
     >
-      <span
-        className={`font-display text-[1.3rem] font-extrabold tracking-[0.04em] font-wide ${main}`}
-      >
-        YORULMAZ
-      </span>
-      <span className="mt-1 flex items-center gap-2">
-        <span className="h-px w-5 bg-signal transition-all duration-300 group-hover:w-7" />
-        <span
-          className={`text-[0.625rem] font-semibold tracking-[0.32em] ${tone === 'dark' ? 'text-muted' : 'text-paper/65'}`}
-        >
-          AUTORIJSCHOOL
-        </span>
-      </span>
+      <Image
+        src={logo}
+        alt="Autorijschool Yorulmaz – Met vertrouwen de weg op"
+        priority={priority}
+        sizes="200px"
+        className={`w-auto ${className}`}
+      />
     </Link>
   )
 }
