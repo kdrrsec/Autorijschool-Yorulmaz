@@ -7,7 +7,7 @@ import { IconTile } from '../IconTile'
 
 const facts = [
   { label: 'Lesgebied', value: site.region, icon: MapPin, tone: 'sky' as const },
-  { label: 'Tarieven', value: 'Losse lessen, geen pakketten', icon: Euro, tone: 'signal' as const },
+  { label: 'Tarieven', value: 'Rijles vanaf €60', icon: Euro, tone: 'signal' as const },
   { label: 'Aanmelden', value: 'Via WhatsApp of het formulier', icon: MessageCircle, tone: 'mint' as const },
 ]
 

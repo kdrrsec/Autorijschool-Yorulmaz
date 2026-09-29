@@ -28,6 +28,18 @@ function structuredData() {
     },
     areaServed: { '@type': 'City', name: site.city },
   }
+  const offers = [
+    ...site.prices.map((p) => ({ name: p.label, price: p.amount })),
+    ...site.packages.map((p) => ({ name: `${p.name}: ${p.title}`, price: p.price })),
+  ]
+  if (offers.length) {
+    data.makesOffer = offers.map((o) => ({
+      '@type': 'Offer',
+      name: o.name,
+      price: o.price,
+      priceCurrency: 'EUR',
+    }))
+  }
   if (phone) data.telephone = phone
   if (email) data.email = email
   if (instagram) data.sameAs = [instagram]

@@ -19,7 +19,8 @@ Alle bedrijfsgegevens staan in **`src/content/site.ts`**. Wat daar op `null` of 
 | WhatsApp | `contact.whatsapp` (bijv. `31612345678`) | Alle WhatsApp-knoppen + het formulier opent WhatsApp |
 | E-mail | `contact.email` | Contactblok; formulier valt terug op e-mail als er geen WhatsApp is |
 | Instagram | `contact.instagram` (volledige URL) | Footer, fotosectie, structured data |
-| Tarieven | `prices` | Prijslijst in de tarievensectie (geen pakketten) |
+| Tarieven | `prices` | Losse rijlessen in de tarievensectie |
+| Pakketten | `packages` | Pakketkaarten; het voordeel wordt automatisch berekend |
 | Reviews | `reviews` | Eerste review groot, overige eronder |
 | Instructeur | `instructor` | Naam, ervaring, bio en foto in "Over ons" |
 | Foto's | `photos.hero`, `photos.gallery` | Vervangt de grafische placeholders |

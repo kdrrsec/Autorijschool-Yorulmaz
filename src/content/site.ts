@@ -7,12 +7,24 @@
  */
 
 export type Price = {
-  /** Bijvoorbeeld "Rijles (60 minuten)" */
+  /** Bijvoorbeeld "Rijles van 60 minuten" */
   label: string
-  /** Bedrag in euro's, bijvoorbeeld 55 */
+  /** Lesduur in minuten */
+  minutes: number
+  /** Bedrag in euro's */
   amount: number
-  /** Optionele toelichting, bijvoorbeeld "inclusief ophalen" */
+  /** Optionele toelichting */
   note?: string
+}
+
+export type Package = {
+  name: string
+  /** Bijvoorbeeld "20 lessen van 60 minuten" */
+  title: string
+  /** Onderdelen met hun losse prijs; het voordeel wordt hieruit berekend */
+  items: { label: string; amount: number }[]
+  /** Pakketprijs in euro's */
+  price: number
 }
 
 export type Review = {
@@ -56,8 +68,33 @@ export const site = {
     instagram: 'https://www.instagram.com/autorijschoolyorulmaz/' as string | null,
   },
 
-  /** Losse tarieven. Leeg laten zolang de prijzen niet bekend zijn. */
-  prices: [] as Price[],
+  /** Losse rijlessen */
+  prices: [
+    { label: 'Rijles van 60 minuten', minutes: 60, amount: 60 },
+    { label: 'Rijles van 90 minuten', minutes: 90, amount: 90 },
+  ] as Price[],
+
+  /** Lespakketten. Het voordeel = som van de onderdelen − pakketprijs. */
+  packages: [
+    {
+      name: 'Pakket 1',
+      title: '20 lessen van 60 minuten',
+      items: [
+        { label: '20 rijlessen van 1 uur', amount: 1200 },
+        { label: 'Praktijkexamen', amount: 320 },
+      ],
+      price: 1499,
+    },
+    {
+      name: 'Pakket 2',
+      title: '20 lessen van 90 minuten',
+      items: [
+        { label: '20 rijlessen van 1,5 uur', amount: 1800 },
+        { label: 'Praktijkexamen', amount: 320 },
+      ],
+      price: 2049,
+    },
+  ] as Package[],
 
   /** Echte reviews van leerlingen. Leeg laten tot ze er zijn. */
   reviews: [] as Review[],
