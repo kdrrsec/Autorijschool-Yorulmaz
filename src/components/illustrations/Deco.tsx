@@ -44,7 +44,7 @@ export function Road({ className = '' }: { className?: string }) {
     <svg viewBox="0 0 600 120" preserveAspectRatio="none" className={className} aria-hidden role="presentation">
       <path d="M0 40 Q300 0 600 40 L600 120 L0 120 Z" fill="#26324d" />
       <path d="M0 40 Q300 0 600 40" fill="none" stroke="#3a4a6e" strokeWidth="6" />
-      <path d="M0 82 Q300 44 600 82" fill="none" stroke="#e5a83b" strokeWidth="5" strokeDasharray="28 22" />
+      <path d="M0 82 Q300 44 600 82" fill="none" stroke="#ffffff" strokeOpacity="0.85" strokeWidth="5" strokeDasharray="28 22" />
     </svg>
   )
 }

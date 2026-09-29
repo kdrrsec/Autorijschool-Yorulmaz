@@ -72,7 +72,7 @@ export function Lessons() {
                 style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}
               >
                 <div className="flex items-center gap-4 lg:flex-col lg:gap-0">
-                  <span className="relative inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-signal text-navy shadow-[0_10px_30px_-10px_rgba(229,168,59,0.7)]">
+                  <span className="relative inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-signal text-white shadow-[0_10px_30px_-10px_rgba(215,38,61,0.7)]">
                     <Icon className="size-7" strokeWidth={1.9} />
                     <span className="absolute -top-2 -right-2 inline-flex size-6 items-center justify-center rounded-full bg-white text-xs font-bold text-navy tabular-nums">
                       {i + 1}

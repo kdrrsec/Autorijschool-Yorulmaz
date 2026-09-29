@@ -13,7 +13,7 @@ export function TrialCta() {
 
           <div className="relative grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <p className="label text-signal" data-reveal>
+              <p className="label text-[#ff8a98]" data-reveal>
                 Proefles
               </p>
               <h2

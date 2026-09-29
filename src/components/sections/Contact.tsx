@@ -54,7 +54,7 @@ export function Contact() {
             <ul className="grid gap-3">
               {rows.map((row, i) => (
                 <li key={row.label} className="flex items-center gap-4 rounded-2xl border border-line/70 bg-white p-3 pr-4 shadow-card">
-                  <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${['bg-sky-deep text-blue', 'bg-signal-soft text-signal-deep', 'bg-mint text-wa', 'bg-rose text-[#a8336b]'][i]}`}>
+                  <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${['bg-sky-deep text-blue', 'bg-signal-soft text-signal-deep', 'bg-mint text-wa', 'bg-rose text-amber-deep'][i]}`}>
                     {row.icon}
                   </span>
                   <span className="label w-20 shrink-0 text-subtle sm:w-24">{row.label}</span>

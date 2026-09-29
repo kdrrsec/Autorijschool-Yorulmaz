@@ -22,7 +22,7 @@ export default function OpengraphImage() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ fontSize: 44, fontWeight: 800, letterSpacing: 4 }}>YORULMAZ</div>
           <div style={{ display: 'flex', alignItems: 'center', marginTop: 10 }}>
-            <div style={{ width: 40, height: 3, background: '#e5a83b', marginRight: 16 }} />
+            <div style={{ width: 40, height: 3, background: '#d7263d', marginRight: 16 }} />
             <div style={{ fontSize: 18, letterSpacing: 8, color: 'rgba(255,255,255,0.65)' }}>
               AUTORIJSCHOOL
             </div>
@@ -35,7 +35,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 76, lineHeight: 1.05, letterSpacing: -2, color: 'rgba(255,255,255,0.5)' }}>
             Stap voor stap naar je rijbewijs.
           </div>
-          <div style={{ marginTop: 36, fontSize: 26, color: '#e5a83b', letterSpacing: 3 }}>
+          <div style={{ marginTop: 36, fontSize: 26, color: '#d7263d', letterSpacing: 3 }}>
             RIJLESSEN IN DOESBURG EN OMGEVING
           </div>
         </div>

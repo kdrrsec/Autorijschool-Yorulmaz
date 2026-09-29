@@ -4,7 +4,7 @@ const tones = {
   signal: 'bg-signal-soft text-signal-deep',
   sky: 'bg-sky-deep text-blue',
   mint: 'bg-mint text-wa',
-  rose: 'bg-rose text-[#a8336b]',
+  rose: 'bg-rose text-amber-deep',
   navy: 'bg-navy text-signal',
 } as const
 

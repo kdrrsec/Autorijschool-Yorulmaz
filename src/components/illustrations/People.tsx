@@ -29,7 +29,7 @@ export function Instructor({ className = '' }: { className?: string }) {
       {/* Romp */}
       <path d="M44 146 Q46 118 85 114 Q124 118 126 146 L120 232 L50 232 Z" fill="#16213a" />
       <path d="M72 116 L85 136 L98 116 Z" fill="#fff" />
-      <rect x="92" y="150" width="18" height="4" rx="2" fill="#e5a83b" />
+      <rect x="92" y="150" width="18" height="4" rx="2" fill="#d7263d" />
       {/* Hals en hoofd */}
       <rect x="76" y="94" width="18" height="24" rx="6" fill={skin} />
       <circle cx="85" cy="70" r="30" fill={skin} />
@@ -40,7 +40,7 @@ export function Instructor({ className = '' }: { className?: string }) {
       {/* Arm rechts met klembord */}
       <path d="M120 142 Q138 172 116 190" stroke="#16213a" strokeWidth="20" strokeLinecap="round" fill="none" />
       <g transform="rotate(-8 100 190)">
-        <rect x="74" y="160" width="50" height="64" rx="6" fill="#e5a83b" />
+        <rect x="74" y="160" width="50" height="64" rx="6" fill="#d7263d" />
         <rect x="79" y="168" width="40" height="52" rx="3" fill="#fff" />
         <rect x="90" y="156" width="18" height="9" rx="3" fill="#8391a8" />
         <path d="M85 180 l4 4 l7 -8 M85 194 l4 4 l7 -8" stroke="#1f8f4e" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
@@ -66,18 +66,18 @@ export function Student({ className = '' }: { className?: string }) {
       <path d="M54 338 Q56 328 70 328 L81 328 L81 344 L56 344 Q52 344 54 338 Z" fill="#fff" stroke={ink} strokeWidth="2" />
       <path d="M88 328 L100 328 Q114 328 116 338 Q118 344 112 344 L88 344 Z" fill="#fff" stroke={ink} strokeWidth="2" />
       {/* Arm links in de zij */}
-      <path d="M50 144 Q30 176 56 196" stroke="#e5a83b" strokeWidth="19" strokeLinecap="round" fill="none" />
+      <path d="M50 144 Q30 176 56 196" stroke="#d7263d" strokeWidth="19" strokeLinecap="round" fill="none" />
       <circle cx="58" cy="197" r="8.5" fill={skin} />
       {/* Romp */}
-      <path d="M46 148 Q48 120 85 116 Q122 120 124 148 L118 232 L52 232 Z" fill="#e5a83b" />
-      <path d="M70 118 Q85 132 100 118" fill="none" stroke="#c98a22" strokeWidth="3" />
+      <path d="M46 148 Q48 120 85 116 Q122 120 124 148 L118 232 L52 232 Z" fill="#d7263d" />
+      <path d="M70 118 Q85 132 100 118" fill="none" stroke="#a3182b" strokeWidth="3" />
       {/* Hals en hoofd */}
       <rect x="77" y="96" width="16" height="24" rx="6" fill={skin} />
       <circle cx="85" cy="72" r="29" fill={skin} />
       <path d="M55 72 Q52 38 86 38 Q118 38 115 70 Q108 56 92 56 Q70 54 62 68 Q58 70 55 72 Z" fill="#7a4a2a" />
       <Face cx={85} cy={78} />
       {/* Arm rechts omhoog met rijbewijs */}
-      <path d="M120 146 Q140 110 136 70" stroke="#e5a83b" strokeWidth="19" strokeLinecap="round" fill="none" />
+      <path d="M120 146 Q140 110 136 70" stroke="#d7263d" strokeWidth="19" strokeLinecap="round" fill="none" />
       <g transform="rotate(12 138 44)">
         <rect x="112" y="24" width="54" height="36" rx="5" fill="#f3d7ea" stroke={ink} strokeWidth="2" />
         <rect x="117" y="30" width="14" height="18" rx="2" fill="#c3cfe2" />
@@ -88,8 +88,8 @@ export function Student({ className = '' }: { className?: string }) {
       </g>
       <circle cx="136" cy="64" r="8.5" fill={skin} />
       {/* Sterretjes */}
-      <path d="M22 60 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z" fill="#e5a83b" />
-      <path d="M150 104 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z" fill="#e5a83b" />
+      <path d="M22 60 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z" fill="#d7263d" />
+      <path d="M150 104 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z" fill="#d7263d" />
     </svg>
   )
 }
