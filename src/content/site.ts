@@ -117,12 +117,11 @@ export const site = {
   },
 }
 
+/** Menu in dezelfde volgorde als de secties op de pagina. Het logo gaat naar boven. */
 export const nav = [
-  { href: '/#home', label: 'Home' },
-  { href: '/#over-ons', label: 'Over ons' },
   { href: '/#rijlessen', label: 'Rijlessen' },
   { href: '/#tarieven', label: 'Tarieven' },
-  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#over-ons', label: 'Over ons' },
   { href: '/#contact', label: 'Contact' },
 ]
 
