@@ -3,6 +3,7 @@ import { Archivo, Source_Sans_3 } from 'next/font/google'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { RevealObserver } from '@/components/RevealObserver'
+import { HashLinkHandler } from '@/components/HashLinkHandler'
 import { site } from '@/content/site'
 import './globals.css'
 
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <RevealObserver />
+        <HashLinkHandler />
       </body>
     </html>
   )
