@@ -19,7 +19,7 @@ const steps = [
   },
   {
     title: 'Zelfstandig rijden',
-    text: 'Je kiest zelf de route en neemt je eigen beslissingen. Je instructeur grijpt alleen in als het echt nodig is.',
+    text: 'Je rijdt steeds meer op eigen kracht, bijvoorbeeld op de borden of met navigatie, net als bij het examen. Je instructeur kijkt mee en geeft tips waar dat helpt.',
     icon: Navigation,
   },
   {
