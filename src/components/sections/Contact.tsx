@@ -46,7 +46,7 @@ export function Contact() {
             Neem contact op
           </h2>
           <p className="mt-6 max-w-md text-muted" data-reveal>
-            Een vraag over rijlessen of meteen een proefles plannen? Stuur een bericht, bel of vul
+            Een vraag over rijlessen of pakketten, of wil je je meteen aanmelden? Stuur een bericht, bel of vul
             het formulier in. Je krijgt zo snel mogelijk antwoord.
           </p>
 

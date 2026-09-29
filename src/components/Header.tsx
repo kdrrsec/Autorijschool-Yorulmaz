@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { nav, site, whatsappHref, trialLessonMessage } from '@/content/site'
+import { nav, site, whatsappHref, signupMessage } from '@/content/site'
 import { Logo } from './Logo'
 import { ArrowRight, WhatsApp } from './Icons'
 
@@ -74,10 +74,10 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/#proefles"
+            href="/#aanvragen"
             className="group hidden min-h-11 items-center gap-2 rounded-xl bg-signal px-5 text-[0.925rem] font-semibold text-white transition-colors hover:bg-signal-deep sm:inline-flex"
           >
-            Proefles aanvragen
+            Aanmelden
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
 
@@ -131,15 +131,15 @@ export function Header() {
 
           <div className="mt-auto grid gap-3 pt-10">
             <Link
-              href="/#proefles"
+              href="/#aanvragen"
               onClick={close}
               className="flex min-h-13 items-center justify-between rounded-xl bg-signal px-5 font-semibold text-white"
             >
-              Proefles aanvragen
+              Aanmelden
               <ArrowRight />
             </Link>
             <a
-              href={whatsappHref(trialLessonMessage)}
+              href={whatsappHref(signupMessage)}
               onClick={close}
               {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="flex min-h-13 items-center justify-between rounded-xl border border-ink/20 px-5 font-semibold text-ink"

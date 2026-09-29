@@ -1,10 +1,10 @@
-import { whatsappHref, trialLessonMessage } from '@/content/site'
+import { whatsappHref, signupMessage } from '@/content/site'
 import { Button } from '../Button'
 import { License3D } from '../illustrations/License3D'
 
 export function TrialCta() {
   return (
-    <section id="proefles" aria-labelledby="proefles-title" className="py-20 sm:py-24">
+    <section id="aanmelden" aria-labelledby="aanmelden-title" className="py-20 sm:py-24">
       <div className="container-site">
         <div className="relative overflow-hidden rounded-[2rem] bg-navy px-6 py-12 text-paper sm:px-12 sm:py-16 lg:px-16">
           <div className="pointer-events-none absolute -right-20 -bottom-32 size-96 rounded-full bg-navy-soft" aria-hidden />
@@ -14,23 +14,23 @@ export function TrialCta() {
           <div className="relative grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <p className="label text-[#ff8a98]" data-reveal>
-                Proefles
+                Aanmelden
               </p>
               <h2
-                id="proefles-title"
+                id="aanmelden-title"
                 className="mt-5 text-[2.4rem] leading-[1] font-bold tracking-[-0.03em] sm:text-[3.25rem] lg:text-[3.75rem]"
                 data-reveal
               >
                 Klaar om te beginnen?
               </h2>
               <p className="mt-6 max-w-lg text-lg text-paper/70" data-reveal>
-                Plan je eerste rijles en ontdek of Autorijschool Yorulmaz bij jou past.
+                Kies voor losse lessen of een voordelig pakket en plan je eerste rijles.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row" data-reveal>
                 <Button href="/#aanvragen" variant="signal">
-                  Proefles aanvragen
+                  Meld je aan
                 </Button>
-                <Button href={whatsappHref(trialLessonMessage)} variant="outline-light" icon="whatsapp">
+                <Button href={whatsappHref(signupMessage)} variant="outline-light" icon="whatsapp">
                   WhatsApp
                 </Button>
               </div>

@@ -3,9 +3,10 @@
 import Link from 'next/link'
 import { useId, useState } from 'react'
 import { site } from '@/content/site'
+import { ChevronDown } from 'lucide-react'
 import { ArrowRight } from './Icons'
 
-type Subject = 'proefles' | 'vraag'
+type Subject = 'aanmelden' | 'vraag'
 type Status = { kind: 'idle' } | { kind: 'error'; message: string } | { kind: 'sent'; via: string } | { kind: 'unavailable' }
 
 /**
@@ -16,7 +17,7 @@ type Status = { kind: 'idle' } | { kind: 'error'; message: string } | { kind: 's
  */
 export function ContactForm() {
   const id = useId()
-  const [subject, setSubject] = useState<Subject>('proefles')
+  const [subject, setSubject] = useState<Subject>('aanmelden')
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -26,6 +27,7 @@ export function ContactForm() {
     const phone = String(data.get('telefoon') ?? '').trim()
     const email = String(data.get('email') ?? '').trim()
     const message = String(data.get('bericht') ?? '').trim()
+    const interest = String(data.get('interesse') ?? '').trim()
 
     if (!name) {
       setStatus({ kind: 'error', message: 'Vul je naam in.' })
@@ -40,10 +42,11 @@ export function ContactForm() {
       return
     }
 
-    const heading = subject === 'proefles' ? 'Aanvraag proefles' : 'Vraag via de website'
+    const heading = subject === 'aanmelden' ? 'Aanmelding rijlessen' : 'Vraag via de website'
     const lines = [heading, '', `Naam: ${name}`]
     if (phone) lines.push(`Telefoon: ${phone}`)
     if (email) lines.push(`E-mail: ${email}`)
+    if (subject === 'aanmelden' && interest) lines.push(`Interesse: ${interest}`)
     if (message) lines.push('', message)
     const body = lines.join('\n')
 
@@ -65,7 +68,7 @@ export function ContactForm() {
   return (
     <div className="rounded-[2rem] bg-sky px-5 py-8 sm:px-10 sm:py-12" data-reveal>
       <h3 className="font-display text-[1.6rem] leading-tight font-semibold tracking-[-0.015em]">
-        {subject === 'proefles' ? 'Proefles aanvragen' : 'Stel je vraag'}
+        {subject === 'aanmelden' ? 'Aanmelden voor rijlessen' : 'Stel je vraag'}
       </h3>
       <p className="mt-2 text-muted">Vul je gegevens in, dan nemen we contact met je op.</p>
 
@@ -75,7 +78,7 @@ export function ContactForm() {
           <div className="mt-2 grid grid-cols-2 rounded-xl border border-ink/15 bg-paper p-1">
             {(
               [
-                ['proefles', 'Proefles'],
+                ['aanmelden', 'Aanmelden'],
                 ['vraag', 'Een vraag'],
               ] as const
             ).map(([value, label]) => (
@@ -98,6 +101,27 @@ export function ContactForm() {
             ))}
           </div>
         </fieldset>
+
+        {subject === 'aanmelden' && (
+          <div>
+            <label htmlFor={`${id}-interesse`} className={labelCls}>
+              Waar heb je interesse in?
+            </label>
+            <div className="relative">
+              <select id={`${id}-interesse`} name="interesse" defaultValue="" className={`${field} appearance-none pr-10`}>
+              <option value="">Maak een keuze</option>
+              {site.prices.length > 0 && <option value="Losse rijlessen">Losse rijlessen</option>}
+              {site.packages.map((p) => (
+                <option key={p.name} value={`${p.name} (${p.title})`}>
+                  {p.name}: {p.title}
+                </option>
+              ))}
+              <option value="Weet ik nog niet">Weet ik nog niet</option>
+              </select>
+              <ChevronDown className="pointer-events-none absolute top-1/2 right-4 mt-1 size-4 -translate-y-1/2 text-navy" aria-hidden />
+            </div>
+          </div>
+        )}
 
         <div>
           <label htmlFor={`${id}-naam`} className={labelCls}>
@@ -130,7 +154,7 @@ export function ContactForm() {
             name="bericht"
             rows={4}
             className={`${field} resize-y`}
-            placeholder={subject === 'proefles' ? 'Bijvoorbeeld: wanneer je meestal kunt' : undefined}
+            placeholder={subject === 'aanmelden' ? 'Bijvoorbeeld: wanneer je meestal kunt' : undefined}
           />
         </div>
 
@@ -153,7 +177,7 @@ export function ContactForm() {
           type="submit"
           className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-navy px-6 font-semibold text-paper transition-colors hover:bg-navy-soft active:translate-y-px sm:w-auto"
         >
-          {subject === 'proefles' ? 'Proefles aanvragen' : 'Verstuur je vraag'}
+          {subject === 'aanmelden' ? 'Aanmelding versturen' : 'Verstuur je vraag'}
           <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </button>
 

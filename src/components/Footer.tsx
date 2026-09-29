@@ -18,7 +18,7 @@ export function Footer() {
             href="/#aanvragen"
             className="group mt-8 inline-flex items-center gap-2 border-b border-paper/30 pb-1 font-semibold transition-colors hover:border-paper"
           >
-            Proefles aanvragen
+            Aanmelden
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>

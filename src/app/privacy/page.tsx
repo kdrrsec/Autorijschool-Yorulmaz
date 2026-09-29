@@ -27,7 +27,7 @@ export default function PrivacyPage() {
 
       <h2>Waarom we deze gegevens gebruiken</h2>
       <p>
-        We gebruiken je gegevens alleen om je vraag te beantwoorden, een proefles of rijles in te
+        We gebruiken je gegevens alleen om je vraag te beantwoorden, je rijlessen in te
         plannen en contact met je te houden over je lessen. We verkopen je gegevens niet en delen ze
         niet met anderen, tenzij dat nodig is voor je opleiding (bijvoorbeeld bij het aanvragen van
         een examen) of wettelijk verplicht is.

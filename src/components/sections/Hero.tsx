@@ -1,5 +1,5 @@
-import { CalendarCheck, Check } from 'lucide-react'
-import { site, whatsappHref, trialLessonMessage } from '@/content/site'
+import { Check, Package } from 'lucide-react'
+import { site, whatsappHref, signupMessage } from '@/content/site'
 import { Button } from '../Button'
 import { PhotoFrame } from '../PhotoFrame'
 import { License3D } from '../illustrations/License3D'
@@ -60,8 +60,8 @@ export function Hero() {
               data-reveal
               style={{ '--reveal-delay': '240ms' } as React.CSSProperties}
             >
-              <Button href="/#aanvragen">Proefles aanvragen</Button>
-              <Button href={whatsappHref(trialLessonMessage)} variant="whatsapp" icon="whatsapp">
+              <Button href="/#tarieven">Bekijk tarieven</Button>
+              <Button href={whatsappHref(signupMessage)} variant="whatsapp" icon="whatsapp">
                 WhatsApp
               </Button>
             </div>
@@ -87,11 +87,11 @@ export function Hero() {
 
                 <div className="absolute -top-[20%] left-[4%] hidden animate-float items-center xl:flex gap-3 rounded-2xl bg-white px-4 py-3 shadow-lift">
                   <span className="inline-flex size-10 items-center justify-center rounded-xl bg-signal-soft text-signal-deep">
-                    <CalendarCheck className="size-5" strokeWidth={2} />
+                    <Package className="size-5" strokeWidth={2} />
                   </span>
                   <span className="leading-tight">
-                    <span className="block text-sm font-bold">Proefles</span>
-                    <span className="block text-xs text-muted">Plan je eerste les</span>
+                    <span className="block text-sm font-bold">Lespakketten</span>
+                    <span className="block text-xs text-muted">Incl. praktijkexamen</span>
                   </span>
                 </div>
               </div>

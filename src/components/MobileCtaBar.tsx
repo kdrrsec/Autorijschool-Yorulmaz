@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { site, whatsappHref, trialLessonMessage } from '@/content/site'
+import { site, whatsappHref, signupMessage } from '@/content/site'
 import { WhatsApp } from './Icons'
 
 /** Compacte actiebalk op mobiel. Verschijnt na de hero en verdwijnt bij het contactblok. */
@@ -43,10 +43,10 @@ export function MobileCtaBar() {
           href="/#aanvragen"
           className="flex min-h-12 items-center justify-center rounded-xl bg-ink text-[0.95rem] font-semibold text-paper"
         >
-          Proefles aanvragen
+          Aanmelden
         </Link>
         <a
-          href={whatsappHref(trialLessonMessage)}
+          href={whatsappHref(signupMessage)}
           {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-ink/20 px-4 text-[0.95rem] font-semibold"
         >

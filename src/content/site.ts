@@ -134,5 +134,5 @@ export function whatsappHref(message?: string) {
   return `https://wa.me/${number}${text}`
 }
 
-export const trialLessonMessage =
-  'Hallo, ik wil graag een proefles aanvragen bij Autorijschool Yorulmaz.'
+export const signupMessage =
+  'Hallo, ik wil me graag aanmelden voor rijlessen bij Autorijschool Yorulmaz.'

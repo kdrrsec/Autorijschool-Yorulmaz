@@ -4,7 +4,7 @@ import { Eyebrow } from '../Eyebrow'
 const steps = [
   {
     title: 'Kennismaken',
-    text: 'In de proefles leren we elkaar kennen. Je rijdt meteen een stukje en we bespreken wat je nodig hebt.',
+    text: 'In de eerste les leren we elkaar kennen. Je rijdt meteen een stukje en we bespreken wat je nodig hebt.',
     icon: Handshake,
   },
   {
