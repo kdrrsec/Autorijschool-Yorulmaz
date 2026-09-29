@@ -77,7 +77,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/#proefles"
-            className="group hidden min-h-11 items-center gap-2 rounded-[3px] bg-ink px-5 text-[0.925rem] font-semibold text-paper transition-colors hover:bg-navy-soft sm:inline-flex"
+            className="group hidden min-h-11 items-center gap-2 rounded-xl bg-ink px-5 text-[0.925rem] font-semibold text-paper transition-colors hover:bg-navy-soft sm:inline-flex"
           >
             Proefles aanvragen
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -135,7 +135,7 @@ export function Header() {
             <Link
               href="/#proefles"
               onClick={close}
-              className="flex min-h-13 items-center justify-between rounded-[3px] bg-ink px-5 font-semibold text-paper"
+              className="flex min-h-13 items-center justify-between rounded-xl bg-ink px-5 font-semibold text-paper"
             >
               Proefles aanvragen
               <ArrowRight />
@@ -144,7 +144,7 @@ export function Header() {
               href={whatsappHref(trialLessonMessage)}
               onClick={close}
               {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="flex min-h-13 items-center justify-between rounded-[3px] border border-ink/20 px-5 font-semibold text-ink"
+              className="flex min-h-13 items-center justify-between rounded-xl border border-ink/20 px-5 font-semibold text-ink"
             >
               <span className="flex items-center gap-2.5">
                 <WhatsApp className="size-[1.1rem] text-wa" />

@@ -5,6 +5,8 @@ import { PhotoFrame } from '../PhotoFrame'
 
 export function Gallery() {
   const [large, small1, small2] = site.photos.gallery
+  // Zonder echte foto's tonen we deze sectie niet.
+  if (!site.photos.gallery.some(Boolean)) return null
 
   return (
     <section aria-labelledby="fotos-title" className="py-20 sm:py-28 lg:py-32">
@@ -38,19 +40,19 @@ export function Gallery() {
             photo={large}
             placeholder="lines-dark"
             sizes="(min-width: 1024px) 58vw, 100vw"
-            className="col-span-2 aspect-[4/3] lg:col-span-7 lg:row-span-2 lg:aspect-auto lg:min-h-[36rem]"
+            className="col-span-2 aspect-[4/3] rounded-3xl lg:col-span-7 lg:row-span-2 lg:aspect-auto lg:min-h-[36rem]"
           />
           <PhotoFrame
             photo={small1}
             placeholder="road-light"
             sizes="(min-width: 1024px) 38vw, 50vw"
-            className="aspect-square sm:aspect-[4/3] lg:col-span-5 lg:aspect-[16/10]"
+            className="aspect-square rounded-3xl sm:aspect-[4/3] lg:col-span-5 lg:aspect-[16/10]"
           />
           <PhotoFrame
             photo={small2}
             placeholder="lines"
             sizes="(min-width: 1024px) 30vw, 50vw"
-            className="aspect-square sm:aspect-[4/3] lg:col-span-4 lg:col-start-8 lg:aspect-[4/3]"
+            className="aspect-square rounded-3xl sm:aspect-[4/3] lg:col-span-5 lg:col-start-8 lg:aspect-[16/10]"
           />
         </div>
       </div>

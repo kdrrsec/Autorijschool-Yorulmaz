@@ -1,28 +1,49 @@
+import { MapPin, Smile, ThumbsUp, UserRound } from 'lucide-react'
 import { site } from '@/content/site'
 import { Eyebrow } from '../Eyebrow'
+import { IconTile, type Tone } from '../IconTile'
 import { PhotoFrame } from '../PhotoFrame'
+import { Instructor, Student } from '../illustrations/People'
+import { RoadSign } from '../illustrations/Deco'
+
+const values: { title: string; text: string; icon: typeof Smile; tone: Tone }[] = [
+  { title: 'Rustig', text: 'Een ontspannen sfeer in de auto, zodat je je kunt concentreren.', icon: Smile, tone: 'mint' },
+  { title: 'Duidelijk', text: 'Heldere uitleg en eerlijke feedback na iedere les.', icon: ThumbsUp, tone: 'sky' },
+]
 
 export function About() {
   const { instructor } = site
   const details = [
-    instructor.name && { label: 'Instructeur', value: instructor.name },
-    instructor.experience && { label: 'Ervaring', value: instructor.experience },
-    { label: 'Lesgebied', value: site.region },
-  ].filter(Boolean) as { label: string; value: string }[]
+    instructor.name && { label: 'Instructeur', value: instructor.name, icon: UserRound },
+    instructor.experience && { label: 'Ervaring', value: instructor.experience, icon: ThumbsUp },
+    { label: 'Lesgebied', value: site.region, icon: MapPin },
+  ].filter(Boolean) as { label: string; value: string; icon: typeof MapPin }[]
 
   return (
-    <section id="over-ons" aria-labelledby="over-ons-title" className="py-20 sm:py-28 lg:py-36">
-      <div className="container-site grid gap-12 lg:grid-cols-12 lg:gap-x-10">
+    <section id="over-ons" aria-labelledby="over-ons-title" className="py-20 sm:py-28 lg:py-32">
+      <div className="container-site grid items-center gap-12 lg:grid-cols-12 lg:gap-x-12">
         <div className="lg:col-span-5">
-          <PhotoFrame
-            photo={instructor.photo}
-            placeholder="monogram"
-            sizes="(min-width: 1024px) 38vw, 100vw"
-            className={`${instructor.photo ? 'aspect-[4/5]' : 'aspect-[16/10]'} sm:aspect-[4/3] lg:aspect-[4/5]`}
-          />
+          {instructor.photo ? (
+            <PhotoFrame
+              photo={instructor.photo}
+              sizes="(min-width: 1024px) 38vw, 100vw"
+              className="aspect-[4/5] rounded-3xl"
+            />
+          ) : (
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-signal-soft sm:aspect-[4/3] lg:aspect-[4/5]" data-reveal="image">
+              <div className="absolute -top-10 -left-10 size-56 rounded-full bg-white/60" aria-hidden />
+              <div className="absolute inset-x-0 bottom-0 h-[18%] bg-[#f3dfb6]" aria-hidden />
+              <RoadSign className="absolute bottom-[14%] left-[8%] w-[13%]" />
+              <Instructor className="absolute bottom-[4%] left-[20%] w-[34%] sm:w-[28%] lg:left-[18%] lg:w-[40%]" />
+              <Student className="absolute right-[6%] bottom-[4%] w-[34%] sm:right-[16%] sm:w-[28%] lg:right-[4%] lg:w-[40%]" />
+              <div className="absolute top-5 left-5 rounded-2xl bg-white px-4 py-3 shadow-card">
+                <p className="text-sm font-bold">Samen naar je rijbewijs</p>
+              </div>
+            </div>
+          )}
         </div>
 
-        <div className="lg:col-span-6 lg:col-start-7 lg:self-center">
+        <div className="lg:col-span-7">
           <Eyebrow>Over ons</Eyebrow>
           <h2
             id="over-ons-title"
@@ -45,21 +66,29 @@ export function About() {
             </p>
           </div>
 
-          <blockquote
-            className="mt-10 border-l-2 border-signal pl-5 font-display text-[1.35rem] leading-snug font-medium tracking-[-0.01em] sm:text-[1.55rem]"
-            data-reveal
-          >
-            Een goede rijles voelt niet als een examen. Je leert het meest als je je op je gemak
-            voelt.
-          </blockquote>
-
-          <dl className="mt-10 grid border-t border-line sm:grid-cols-2" data-reveal>
-            {details.map((d) => (
-              <div key={d.label} className="border-b border-line py-4 sm:pr-6">
-                <dt className="label text-subtle">{d.label}</dt>
-                <dd className="mt-1.5 font-medium">{d.value}</dd>
-              </div>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2" data-reveal>
+            {values.map((v) => (
+              <li key={v.title} className="flex gap-4 rounded-2xl border border-line/70 bg-white p-4 shadow-card">
+                <IconTile icon={v.icon} tone={v.tone} size="sm" />
+                <div>
+                  <p className="font-semibold">{v.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{v.text}</p>
+                </div>
+              </li>
             ))}
+          </ul>
+
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4" data-reveal>
+            {details.map((d) => {
+              const Icon = d.icon
+              return (
+                <div key={d.label} className="flex items-center gap-3">
+                  <Icon className="size-5 text-signal-deep" strokeWidth={2} aria-hidden />
+                  <dt className="sr-only">{d.label}</dt>
+                  <dd className="font-medium">{d.value}</dd>
+                </div>
+              )
+            })}
           </dl>
         </div>
       </div>

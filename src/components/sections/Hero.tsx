@@ -1,80 +1,108 @@
+import { CalendarCheck, Check, MapPin } from 'lucide-react'
 import { site, whatsappHref, trialLessonMessage } from '@/content/site'
 import { Button } from '../Button'
 import { PhotoFrame } from '../PhotoFrame'
+import { License3D } from '../illustrations/License3D'
+import { LessonCar } from '../illustrations/LessonCar'
+import { Cone, Road, TrafficLight } from '../illustrations/Deco'
 
-const facts = [
-  { label: 'Lesgebied', value: 'Doesburg en omgeving' },
-  { label: 'Tarieven', value: 'Losse lessen, geen pakketten' },
-  { label: 'Aanmelden', value: 'Via WhatsApp of het formulier' },
-]
+const checks = ['Persoonlijke begeleiding', 'Flexibel lessen plannen', 'Losse lessen, geen pakketten']
 
 export function Hero() {
   return (
     <section id="home" className="pt-16 lg:pt-[4.5rem]" aria-labelledby="hero-title">
-      <div className="container-site grid items-end gap-y-10 pt-10 pb-12 sm:pt-14 lg:grid-cols-12 lg:gap-x-10 lg:pt-20 lg:pb-20">
-        <div className="lg:col-span-7 lg:pb-10">
-          <p className="label flex items-center gap-3 text-muted" data-reveal>
-            <span className="h-px w-6 bg-signal" aria-hidden />
-            Autorijschool in {site.city}
-          </p>
-
-          <h1
-            id="hero-title"
-            className="mt-6 text-[2.6rem] leading-[1.02] font-bold tracking-[-0.025em] sm:text-[3.4rem] lg:text-[3.5rem] xl:text-[4rem]"
-            data-reveal
-            style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
-          >
-            Zeker de weg op.
-            <span className="mt-1 block font-normal text-ink/45">
-              Stap voor stap naar je rijbewijs.
-            </span>
-          </h1>
-
-          <p
-            className="mt-7 max-w-[34rem] text-lg leading-relaxed text-muted sm:text-[1.2rem]"
-            data-reveal
-            style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
-          >
-            Persoonlijke rijlessen in Doesburg en omgeving. Rustig uitgelegd, op jouw tempo en met
-            een duidelijk plan richting het examen.
-          </p>
-
-          <div
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
-            data-reveal
-            style={{ '--reveal-delay': '240ms' } as React.CSSProperties}
-          >
-            <Button href="/#aanvragen">Proefles aanvragen</Button>
-            <Button href={whatsappHref(trialLessonMessage)} variant="whatsapp" icon="whatsapp">
-              WhatsApp
-            </Button>
+      <div className="relative overflow-hidden bg-sky">
+        {/* Zachte achtergrondvormen */}
+        <div className="pointer-events-none absolute -top-32 -right-24 size-[34rem] rounded-full bg-sky-deep/70" aria-hidden />
+        <div className="pointer-events-none absolute top-40 -left-40 size-80 rounded-full bg-white/60" aria-hidden />
+        {!site.photos.hero && (
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 lg:h-32">
+            <Road className="h-full w-full" />
           </div>
-        </div>
+        )}
 
-        <div className="relative -mx-5 sm:mx-0 lg:col-span-5">
-          <PhotoFrame
-            photo={site.photos.hero}
-            placeholder="road"
-            priority
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            className="aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5]"
-          />
-          <div className="absolute bottom-0 left-0 hidden bg-paper py-4 pr-6 pl-0 sm:block lg:-left-px">
-            <p className="label text-subtle">Lesgebied</p>
-            <p className="mt-1.5 font-display text-lg font-semibold">{site.region}</p>
-          </div>
-        </div>
-      </div>
+        <div className="container-site relative grid items-center gap-y-6 pt-10 pb-0 sm:pt-14 lg:grid-cols-12 lg:gap-x-8 lg:pt-16">
+          <div className="lg:col-span-6 lg:pb-44">
+            <p className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-navy shadow-card" data-reveal>
+              <MapPin className="size-4 text-signal-deep" strokeWidth={2.2} />
+              Autorijschool in {site.city}
+            </p>
 
-      <div className="border-y border-line">
-        <dl className="container-site grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {facts.map((f) => (
-            <div key={f.label} className="flex items-baseline justify-between gap-4 py-4 sm:block sm:px-6 sm:py-6 sm:first:pl-0">
-              <dt className="label text-subtle">{f.label}</dt>
-              <dd className="text-right text-[0.975rem] font-medium sm:mt-2 sm:text-left">{f.value}</dd>
+            <h1
+              id="hero-title"
+              className="mt-6 text-[2.5rem] leading-[1.03] font-bold tracking-[-0.025em] sm:text-[3.3rem] lg:text-[3.4rem] xl:text-[3.9rem]"
+              data-reveal
+              style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
+            >
+              Zeker de weg op.
+              <span className="mt-1 block text-navy/55">
+                Stap voor stap naar je <span className="relative whitespace-nowrap text-navy">rijbewijs.<span className="absolute inset-x-0 -bottom-1 h-2 -rotate-1 rounded-full bg-signal/80" aria-hidden /></span>
+              </span>
+            </h1>
+
+            <p
+              className="mt-7 max-w-[34rem] text-lg leading-relaxed text-muted"
+              data-reveal
+              style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
+            >
+              Persoonlijke rijlessen in Doesburg en omgeving. Rustig uitgelegd, op jouw tempo en met
+              een duidelijk plan richting het examen.
+            </p>
+
+            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2" data-reveal style={{ '--reveal-delay': '200ms' } as React.CSSProperties}>
+              {checks.map((c) => (
+                <li key={c} className="flex items-center gap-2.5 text-[0.975rem] font-medium">
+                  <span className="inline-flex size-6 items-center justify-center rounded-full bg-wa text-white">
+                    <Check className="size-3.5" strokeWidth={3} />
+                  </span>
+                  {c}
+                </li>
+              ))}
+            </ul>
+
+            <div
+              className="mt-9 flex flex-col gap-3 sm:flex-row"
+              data-reveal
+              style={{ '--reveal-delay': '240ms' } as React.CSSProperties}
+            >
+              <Button href="/#aanvragen">Proefles aanvragen</Button>
+              <Button href={whatsappHref(trialLessonMessage)} variant="whatsapp" icon="whatsapp">
+                WhatsApp
+              </Button>
             </div>
-          ))}
-        </dl>
+          </div>
+
+          {/* Illustratie */}
+          <div className="relative lg:col-span-6 lg:self-end">
+            {site.photos.hero ? (
+              <PhotoFrame
+                photo={site.photos.hero}
+                priority
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="mb-10 aspect-[4/3] rounded-3xl shadow-lift"
+              />
+            ) : (
+              <div className="relative mx-auto aspect-[6/5] w-full max-w-[36rem]">
+                <TrafficLight className="absolute bottom-[5rem] left-[2%] w-[8%] lg:bottom-[7rem]" />
+                <Cone className="absolute right-[3%] bottom-2 w-[9%] lg:bottom-3" />
+                <div className="absolute bottom-[1.6rem] left-[12%] w-[74%] animate-drive lg:bottom-[2.6rem]">
+                  <LessonCar className="h-auto w-full" />
+                </div>
+                <License3D className="absolute top-[6%] right-0 w-[56%]" />
+
+                <div className="absolute top-[4%] left-0 hidden animate-float items-center xl:flex gap-3 rounded-2xl bg-white px-4 py-3 shadow-lift">
+                  <span className="inline-flex size-10 items-center justify-center rounded-xl bg-signal-soft text-signal-deep">
+                    <CalendarCheck className="size-5" strokeWidth={2} />
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block text-sm font-bold">Proefles</span>
+                    <span className="block text-xs text-muted">Plan je eerste les</span>
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   )

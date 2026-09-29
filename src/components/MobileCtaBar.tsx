@@ -41,14 +41,14 @@ export function MobileCtaBar() {
       <div className="grid grid-cols-[1fr_auto] gap-2">
         <Link
           href="/#aanvragen"
-          className="flex min-h-12 items-center justify-center rounded-[3px] bg-ink text-[0.95rem] font-semibold text-paper"
+          className="flex min-h-12 items-center justify-center rounded-xl bg-ink text-[0.95rem] font-semibold text-paper"
         >
           Proefles aanvragen
         </Link>
         <a
           href={whatsappHref(trialLessonMessage)}
           {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-          className="flex min-h-12 items-center justify-center gap-2 rounded-[3px] border border-ink/20 px-4 text-[0.95rem] font-semibold"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-ink/20 px-4 text-[0.95rem] font-semibold"
         >
           <WhatsApp className="size-[1.1rem] text-wa" />
           WhatsApp

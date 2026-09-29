@@ -22,6 +22,8 @@ export type Review = {
   context?: string
   /** Waar de review vandaan komt, bijvoorbeeld "Google" of "Instagram" */
   source?: string
+  /** Aantal sterren (1-5), alleen invullen als de review echt een score heeft */
+  rating?: number
 }
 
 export type Photo = {

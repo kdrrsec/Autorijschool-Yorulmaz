@@ -34,7 +34,7 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="border-t border-line py-20 sm:py-28 lg:py-32">
+    <section id="contact" aria-labelledby="contact-title" className="py-20 sm:py-28 lg:py-32">
       <div className="container-site grid gap-14 lg:grid-cols-12 lg:gap-x-10">
         <div className="lg:col-span-5">
           <Eyebrow>Contact</Eyebrow>
@@ -51,14 +51,13 @@ export function Contact() {
           </p>
 
           <div className="mt-10" data-reveal>
-            <p className="font-display text-lg font-semibold">{site.name}</p>
-            <p className="text-muted">{site.region}</p>
-
-            <ul className="mt-6 border-t border-line">
-              {rows.map((row) => (
-                <li key={row.label} className="flex items-center gap-4 border-b border-line py-4">
-                  <span className="text-ink/50">{row.icon}</span>
-                  <span className="label w-24 shrink-0 text-subtle">{row.label}</span>
+            <ul className="grid gap-3">
+              {rows.map((row, i) => (
+                <li key={row.label} className="flex items-center gap-4 rounded-2xl border border-line/70 bg-white p-3 pr-4 shadow-card">
+                  <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${['bg-sky-deep text-blue', 'bg-signal-soft text-signal-deep', 'bg-mint text-wa', 'bg-rose text-[#a8336b]'][i]}`}>
+                    {row.icon}
+                  </span>
+                  <span className="label w-20 shrink-0 text-subtle sm:w-24">{row.label}</span>
                   {row.value && row.href ? (
                     <a
                       href={row.href}

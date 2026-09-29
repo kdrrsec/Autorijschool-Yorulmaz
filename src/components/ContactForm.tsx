@@ -59,11 +59,11 @@ export function ContactForm() {
   }
 
   const field =
-    'mt-2 block w-full rounded-[2px] border border-ink/15 bg-paper px-4 py-3 text-base text-ink transition-colors placeholder:text-subtle hover:border-ink/30 focus:border-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-signal'
+    'mt-2 block w-full rounded-xl border border-ink/15 bg-paper px-4 py-3 text-base text-ink transition-colors placeholder:text-subtle hover:border-ink/30 focus:border-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-signal'
   const labelCls = 'text-sm font-semibold'
 
   return (
-    <div className="-mx-5 bg-stone px-5 py-10 sm:mx-0 sm:px-10 sm:py-12" data-reveal>
+    <div className="rounded-[2rem] bg-sky px-5 py-8 sm:px-10 sm:py-12" data-reveal>
       <h3 className="font-display text-[1.6rem] leading-tight font-semibold tracking-[-0.015em]">
         {subject === 'proefles' ? 'Proefles aanvragen' : 'Stel je vraag'}
       </h3>
@@ -72,7 +72,7 @@ export function ContactForm() {
       <form className="mt-8 space-y-5" onSubmit={onSubmit} noValidate>
         <fieldset>
           <legend className={labelCls}>Waarvoor neem je contact op?</legend>
-          <div className="mt-2 grid grid-cols-2 border border-ink/15 bg-paper p-1">
+          <div className="mt-2 grid grid-cols-2 rounded-xl border border-ink/15 bg-paper p-1">
             {(
               [
                 ['proefles', 'Proefles'],
@@ -81,8 +81,8 @@ export function ContactForm() {
             ).map(([value, label]) => (
               <label
                 key={value}
-                className={`flex min-h-11 cursor-pointer items-center justify-center text-[0.95rem] font-semibold transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-signal ${
-                  subject === value ? 'bg-ink text-paper' : 'text-ink/70 hover:text-ink'
+                className={`flex min-h-11 cursor-pointer items-center justify-center rounded-lg text-[0.95rem] font-semibold transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-signal ${
+                  subject === value ? 'bg-navy text-paper' : 'text-ink/70 hover:text-ink'
                 }`}
               >
                 <input
@@ -151,7 +151,7 @@ export function ContactForm() {
 
         <button
           type="submit"
-          className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-[3px] bg-ink px-6 font-semibold text-paper transition-colors hover:bg-navy-soft active:translate-y-px sm:w-auto"
+          className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-navy px-6 font-semibold text-paper transition-colors hover:bg-navy-soft active:translate-y-px sm:w-auto"
         >
           {subject === 'proefles' ? 'Proefles aanvragen' : 'Verstuur je vraag'}
           <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
