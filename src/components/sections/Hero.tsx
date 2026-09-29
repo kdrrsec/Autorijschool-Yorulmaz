@@ -25,7 +25,7 @@ export function Hero() {
           <div className="lg:col-span-6 lg:pb-44">
             <p className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-navy shadow-card" data-reveal>
               <MapPin className="size-4 text-signal-deep" strokeWidth={2.2} />
-              Autorijschool in {site.city}
+              Autorijschool uit {site.city}
             </p>
 
             <h1

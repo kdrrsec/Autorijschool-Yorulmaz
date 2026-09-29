@@ -20,13 +20,13 @@ function structuredData() {
     name: site.name,
     url: site.url,
     description:
-      'Persoonlijke rijlessen in Doesburg en omgeving. Stap voor stap naar je rijbewijs.',
+      'Rijschool uit Giesbeek met persoonlijke rijlessen in Doesburg en omgeving. Stap voor stap naar je rijbewijs.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: site.city,
       addressCountry: 'NL',
     },
-    areaServed: { '@type': 'City', name: site.city },
+    areaServed: site.areaServed.map((name) => ({ '@type': 'City', name })),
   }
   const offers = [
     ...site.prices.map((p) => ({ name: p.label, price: p.amount })),

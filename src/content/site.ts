@@ -49,8 +49,11 @@ export type Photo = {
 export const site = {
   name: 'Autorijschool Yorulmaz',
   shortName: 'Yorulmaz',
-  city: 'Doesburg',
-  region: 'Doesburg en omgeving',
+  /** Vestigingsplaats van de rijschool */
+  city: 'Giesbeek',
+  /** Plaatsen waar les wordt gegeven */
+  areaServed: ['Doesburg', 'Giesbeek'],
+  region: 'Giesbeek, Doesburg en omgeving',
 
   /** Productie-URL. Zet NEXT_PUBLIC_SITE_URL in de hosting-omgeving. */
   url:

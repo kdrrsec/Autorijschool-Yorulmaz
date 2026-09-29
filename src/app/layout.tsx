@@ -21,7 +21,7 @@ const sourceSans = Source_Sans_3({
 })
 
 const description =
-  'Autorijschool Yorulmaz geeft persoonlijke rijlessen in Doesburg en omgeving. Rustig leren rijden, stap voor stap naar je rijbewijs. Vraag een proefles aan.'
+  'Autorijschool Yorulmaz uit Giesbeek geeft persoonlijke rijlessen in Doesburg en omgeving. Rustig leren rijden, stap voor stap naar je rijbewijs. Vraag een proefles aan.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -37,6 +37,8 @@ export const metadata: Metadata = {
     'Rijschool Doesburg',
     'Rijlessen Doesburg',
     'Rijbewijs halen Doesburg',
+    'Rijschool Giesbeek',
+    'Autorijschool Giesbeek',
   ],
   alternates: { canonical: '/' },
   openGraph: {
