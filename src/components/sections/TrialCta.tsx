@@ -30,7 +30,7 @@ export function TrialCta() {
                 <Button href="/#aanvragen" variant="signal">
                   Meld je aan
                 </Button>
-                <Button href={whatsappHref(signupMessage)} variant="outline-light" icon="whatsapp">
+                <Button href={whatsappHref(signupMessage)} variant="whatsapp" icon="whatsapp">
                   WhatsApp
                 </Button>
               </div>

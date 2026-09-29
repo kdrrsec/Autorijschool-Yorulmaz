@@ -142,10 +142,10 @@ export function Header() {
               href={whatsappHref(signupMessage)}
               onClick={close}
               {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="flex min-h-13 items-center justify-between rounded-xl border border-ink/20 px-5 font-semibold text-ink"
+              className="flex min-h-13 items-center justify-between rounded-xl bg-wa px-5 font-semibold text-white"
             >
               <span className="flex items-center gap-2.5">
-                <WhatsApp className="size-[1.1rem] text-wa" />
+                <WhatsApp className="size-[1.1rem]" />
                 WhatsApp
               </span>
               <ArrowRight />

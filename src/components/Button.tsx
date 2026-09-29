@@ -8,7 +8,7 @@ const styles: Record<Variant, string> = {
   signal: 'bg-signal text-white hover:bg-signal-deep',
   outline: 'border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper',
   'outline-light': 'border border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink',
-  whatsapp: 'border border-ink/15 bg-white text-ink shadow-card hover:border-wa hover:text-wa',
+  whatsapp: 'bg-wa text-white shadow-card hover:bg-[#187a41]',
 }
 
 type Props = {

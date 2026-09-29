@@ -48,9 +48,9 @@ export function MobileCtaBar() {
         <a
           href={whatsappHref(signupMessage)}
           {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-          className="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-ink/20 px-4 text-[0.95rem] font-semibold"
+          className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-wa px-4 text-[0.95rem] font-semibold text-white"
         >
-          <WhatsApp className="size-[1.1rem] text-wa" />
+          <WhatsApp className="size-[1.1rem]" />
           WhatsApp
         </a>
       </div>

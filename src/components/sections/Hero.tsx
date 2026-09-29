@@ -3,7 +3,8 @@ import { site, whatsappHref, signupMessage } from '@/content/site'
 import { Button } from '../Button'
 import { PhotoFrame } from '../PhotoFrame'
 import { License3D } from '../illustrations/License3D'
-import { LessonCar } from '../illustrations/LessonCar'
+import Image from 'next/image'
+import lesautoZij from '../../../public/images/lesauto-zij.webp'
 import { Cone, Road, TrafficLight } from '../illustrations/Deco'
 
 const checks = ['Rijles vanaf €60', 'Pakketten incl. praktijkexamen', 'Lesgebied Doesburg e.o.']
@@ -80,10 +81,17 @@ export function Hero() {
               <div className="relative mx-auto aspect-[6/5] w-full max-w-[36rem]">
                 <TrafficLight className="absolute bottom-[5rem] left-[2%] w-[8%] lg:bottom-[7rem]" />
                 <Cone className="absolute right-[3%] bottom-2 w-[9%] lg:bottom-3" />
-                <div className="absolute bottom-[1.6rem] left-[12%] w-[74%] animate-drive lg:bottom-[2.6rem]">
-                  <LessonCar className="h-auto w-full" />
+                <div className="absolute bottom-[2.7rem] left-[13%] w-[74%] animate-drive lg:bottom-[3.8rem]">
+                  <div className="absolute inset-x-[4%] -bottom-[3%] h-[9%] rounded-[50%] bg-[#05070b]/55 blur-md" aria-hidden />
+                  <Image
+                    src={lesautoZij}
+                    alt="De lesauto van Autorijschool Yorulmaz: zwarte Volkswagen Polo met logo en L-bord"
+                    priority
+                    sizes="(min-width: 1024px) 480px, 80vw"
+                    className="relative h-auto w-full"
+                  />
                 </div>
-                <License3D className="absolute top-[6%] right-0 w-[56%]" />
+                <License3D className="absolute -top-[4%] right-0 w-[50%]" />
 
                 <div className="absolute -top-[20%] left-[4%] hidden animate-float items-center xl:flex gap-3 rounded-2xl bg-white px-4 py-3 shadow-lift">
                   <span className="inline-flex size-10 items-center justify-center rounded-xl bg-signal-soft text-signal-deep">
