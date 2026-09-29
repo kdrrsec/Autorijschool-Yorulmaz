@@ -41,3 +41,14 @@ src/
     sections/     Hero, Intro, Usps, Lessons, Prices, TrialCta, About, Reviews, Gallery, Contact
   content/site.ts alle bedrijfsgegevens
 ```
+
+## Cookies, Google Analytics en Meta-pixel
+
+Tracking staat standaard uit. Zet in Vercel (Settings → Environment Variables) één of beide variabelen en deploy opnieuw:
+
+| Variabele | Voorbeeld | Wat |
+| --- | --- | --- |
+| `NEXT_PUBLIC_GA_ID` | `G-ABC123XYZ` | Google Analytics 4 (categorie *Statistieken*) |
+| `NEXT_PUBLIC_META_PIXEL_ID` | `1234567890` | Meta-pixel voor Facebook/Instagram (categorie *Marketing*) |
+
+Zodra er minstens één is ingesteld, verschijnt de cookiebanner (Accepteren / Weigeren / Zelf kiezen). Scripts laden pas na toestemming; bij intrekken worden de cookies verwijderd. Klikken op WhatsApp of het telefoonnummer worden gemeten als `contact`, een verstuurd aanmeldformulier als `generate_lead` / `Lead`. Het cookiebeleid past zich automatisch aan.

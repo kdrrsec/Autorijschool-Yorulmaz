@@ -110,12 +110,12 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
       )}
 
       {/* Kop */}
-      <div className="relative flex items-center justify-between gap-3">
-        <span className={`rounded-full px-3 py-1 text-xs font-bold tracking-[0.14em] uppercase ${t.pill}`}>
+      <div className="relative flex flex-wrap items-center justify-between gap-2">
+        <span className={`rounded-full px-3 py-1 text-xs font-bold tracking-[0.14em] whitespace-nowrap uppercase ${t.pill}`}>
           {pkg.name}
         </span>
         {featured && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-signal px-3 py-1.5 text-xs font-bold text-white shadow-[0_8px_20px_-8px_rgba(227,0,15,0.8)]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-signal px-3 py-1.5 text-xs font-bold whitespace-nowrap text-white shadow-[0_8px_20px_-8px_rgba(227,0,15,0.8)]">
             <Sparkles className="size-3.5" strokeWidth={2.4} />
             Meeste voordeel
           </span>
@@ -125,7 +125,7 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
       {/* Aantal lessen groot */}
       <div className="relative mt-7 flex items-end gap-4">
         {count && (
-          <span className="font-display text-[5rem] leading-[0.8] font-bold tracking-[-0.05em] tabular-nums sm:text-[6rem]">
+          <span className="font-display text-[4.25rem] leading-[0.8] font-bold tracking-[-0.05em] tabular-nums min-[380px]:text-[5rem] sm:text-[6rem]">
             {count}
           </span>
         )}
@@ -189,27 +189,36 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
 function LessonCard({ price, delay }: { price: Price; delay: number }) {
   return (
     <li
-      className="group relative flex items-center gap-5 overflow-hidden rounded-[1.75rem] bg-white p-5 shadow-card ring-1 ring-navy/5 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lift sm:gap-6 sm:p-6"
+      className="group relative flex flex-wrap items-center gap-x-5 gap-y-4 overflow-hidden rounded-[1.75rem] bg-white p-5 shadow-card ring-1 ring-navy/5 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lift sm:flex-nowrap sm:gap-6 sm:p-6"
       data-reveal
       style={{ '--reveal-delay': `${delay}ms` } as React.CSSProperties}
     >
       <Gauge minutes={price.minutes} />
       <div className="min-w-0 flex-1">
         <p className="label text-subtle">Losse les</p>
-        <p className="mt-1.5 font-display text-[1.2rem] leading-snug font-semibold">{price.label}</p>
+        <p className="mt-1.5 font-display text-[1.15rem] leading-snug font-semibold sm:text-[1.2rem]">{price.label}</p>
         <a
           {...waLink(`Hallo, ik wil graag een ${price.label.toLowerCase()} plannen bij Autorijschool Yorulmaz.`)}
-          className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-signal-deep transition-colors hover:text-signal"
+          className="mt-2 hidden items-center gap-1.5 text-sm font-semibold text-signal-deep transition-colors hover:text-signal sm:inline-flex"
         >
           Les plannen
           <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
         </a>
       </div>
-      <div className="shrink-0 text-right">
-        <p className="font-display text-[2.2rem] leading-none font-bold tracking-[-0.03em] tabular-nums">
-          {euro(price.amount)}
-        </p>
-        <p className="mt-1 text-xs text-muted">per les</p>
+      <div className="flex w-full items-center justify-between border-t border-line pt-4 sm:block sm:w-auto sm:shrink-0 sm:border-0 sm:pt-0 sm:text-right">
+        <div>
+          <p className="font-display text-[2rem] leading-none font-bold tracking-[-0.03em] tabular-nums sm:text-[2.2rem]">
+            {euro(price.amount)}
+          </p>
+          <p className="mt-1 text-xs text-muted">per les</p>
+        </div>
+        <a
+          {...waLink(`Hallo, ik wil graag een ${price.label.toLowerCase()} plannen bij Autorijschool Yorulmaz.`)}
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-xl bg-signal-soft px-4 text-sm font-semibold text-signal-deep sm:hidden"
+        >
+          Les plannen
+          <ArrowRight className="size-3.5" />
+        </a>
       </div>
     </li>
   )

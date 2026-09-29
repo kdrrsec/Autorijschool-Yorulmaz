@@ -71,13 +71,13 @@ export function Lessons() {
                 style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}
               >
                 <div className="flex items-center gap-4 lg:flex-col lg:gap-0">
-                  <span className="relative inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-signal text-white shadow-[0_10px_30px_-10px_rgba(227,0,15,0.6)]">
+                  <span className="relative inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-signal sm:size-16 text-white shadow-[0_10px_30px_-10px_rgba(227,0,15,0.6)]">
                     <Icon className="size-7" strokeWidth={1.9} />
                     <span className="absolute -top-2 -right-2 inline-flex size-6 items-center justify-center rounded-full bg-white text-xs font-bold text-navy tabular-nums">
                       {i + 1}
                     </span>
                   </span>
-                  <h3 className="text-[1.2rem] leading-tight font-semibold tracking-[-0.01em] lg:mt-6">
+                  <h3 className="min-w-0 text-[1.1rem] leading-tight font-semibold tracking-[-0.01em] break-words hyphens-auto sm:text-[1.2rem] lg:mt-6">
                     {step.title}
                   </h3>
                 </div>

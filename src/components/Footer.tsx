@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { nav, site, whatsappHref } from '@/content/site'
 import { Logo } from './Logo'
+import { CookieSettingsLink } from './CookieSettingsLink'
 import { ArrowRight, Instagram, WhatsApp } from './Icons'
 
 export function Footer() {
@@ -18,7 +19,7 @@ export function Footer() {
             href="/#aanvragen"
             className="group mt-8 inline-flex items-center gap-2 border-b border-paper/30 pb-1 font-semibold transition-colors hover:border-paper"
           >
-            Aanmelden
+            Plan je les
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>
@@ -69,7 +70,7 @@ export function Footer() {
       <div className="border-t border-paper/10">
         <div className="container-site flex flex-col gap-3 py-6 text-sm text-paper/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {site.name}</p>
-          <ul className="flex gap-6">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
               <Link href="/privacy" className="transition-colors hover:text-paper">
                 Privacyverklaring
@@ -79,6 +80,9 @@ export function Footer() {
               <Link href="/cookies" className="transition-colors hover:text-paper">
                 Cookiebeleid
               </Link>
+            </li>
+            <li>
+              <CookieSettingsLink className="transition-colors hover:text-paper" />
             </li>
           </ul>
         </div>

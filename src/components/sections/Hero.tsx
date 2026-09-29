@@ -26,7 +26,7 @@ export function Hero() {
           <div className="lg:col-span-6 lg:pb-44">
             <h1
               id="hero-title"
-              className="text-[2.5rem] leading-[1.03] font-bold tracking-[-0.025em] sm:text-[3.3rem] lg:text-[3.4rem] xl:text-[3.9rem]"
+              className="text-[2.2rem] leading-[1.03] min-[360px]:text-[2.5rem] font-bold tracking-[-0.025em] sm:text-[3.3rem] lg:text-[3.4rem] xl:text-[3.9rem]"
               data-reveal
               style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
             >

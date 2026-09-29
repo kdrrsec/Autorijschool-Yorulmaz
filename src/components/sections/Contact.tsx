@@ -57,7 +57,7 @@ export function Contact() {
                   <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${['bg-sky-deep text-blue', 'bg-signal-soft text-signal-deep', 'bg-mint text-wa', 'bg-rose text-amber-deep'][i]}`}>
                     {row.icon}
                   </span>
-                  <span className="label w-20 shrink-0 text-subtle sm:w-24">{row.label}</span>
+                  <span className="label sr-only w-24 shrink-0 text-subtle min-[400px]:not-sr-only">{row.label}</span>
                   {row.value && row.href ? (
                     <a
                       href={row.href}
@@ -69,7 +69,7 @@ export function Contact() {
                       {row.value}
                     </a>
                   ) : (
-                    <span className={row.value ? 'font-medium' : 'text-subtle italic'}>
+                    <span className={`min-w-0 ${row.value ? 'font-medium' : 'text-subtle italic'}`}>
                       {row.value ?? 'Volgt binnenkort'}
                     </span>
                   )}

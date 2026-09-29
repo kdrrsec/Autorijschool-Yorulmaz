@@ -40,6 +40,12 @@ export default function PrivacyPage() {
         het. Voor WhatsApp geldt daarnaast het privacybeleid van WhatsApp.
       </p>
 
+      <h2>Cookies en statistieken</h2>
+      <p>
+        Cookies voor statistieken en advertenties plaatsen we alleen met je toestemming. Welke dat
+        zijn en hoe je je keuze aanpast, lees je in ons <a href="/cookies">cookiebeleid</a>.
+      </p>
+
       <h2>Hoe lang we gegevens bewaren</h2>
       <p>
         We bewaren je gegevens niet langer dan nodig is voor het doel waarvoor ze zijn verzameld, of

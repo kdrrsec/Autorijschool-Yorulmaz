@@ -28,7 +28,7 @@ export function TrialCta() {
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row" data-reveal>
                 <Button href="/#aanvragen" variant="signal">
-                  Meld je aan
+                  Plan je les
                 </Button>
                 <Button href={whatsappHref(signupMessage)} variant="whatsapp" icon="whatsapp">
                   WhatsApp

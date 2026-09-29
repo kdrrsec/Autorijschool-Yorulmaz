@@ -52,9 +52,11 @@ export function ContactForm() {
 
     if (site.contact.whatsapp) {
       window.open(`https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(body)}`, '_blank', 'noopener')
+      window.dispatchEvent(new Event('yorulmaz:lead'))
       setStatus({ kind: 'sent', via: 'WhatsApp' })
     } else if (site.contact.email) {
       window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(heading)}&body=${encodeURIComponent(body)}`
+      window.dispatchEvent(new Event('yorulmaz:lead'))
       setStatus({ kind: 'sent', via: 'je e-mailprogramma' })
     } else {
       setStatus({ kind: 'unavailable' })

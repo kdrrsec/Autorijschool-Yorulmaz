@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { nav, site, whatsappHref, signupMessage } from '@/content/site'
 import { Logo } from './Logo'
-import { ArrowRight, WhatsApp } from './Icons'
+import { ArrowRight, Phone, WhatsApp } from './Icons'
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -77,7 +77,7 @@ export function Header() {
             href="/#aanvragen"
             className="group hidden min-h-11 items-center gap-2 rounded-xl bg-signal px-5 text-[0.925rem] font-semibold text-white transition-colors hover:bg-signal-deep sm:inline-flex"
           >
-            Aanmelden
+            Plan je les
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
 
@@ -106,53 +106,66 @@ export function Header() {
       <div
         id="mobiel-menu"
         ref={panelRef}
-        hidden={!open}
-        className="fixed inset-x-0 top-16 bottom-0 overflow-y-auto border-t border-line bg-paper lg:hidden"
+        inert={!open}
+        aria-hidden={!open}
+        className={`fixed inset-x-0 top-16 bottom-0 overflow-y-auto bg-navy transition-[opacity,visibility] duration-300 lg:hidden ${
+          open ? 'visible opacity-100' : 'invisible opacity-0'
+        }`}
       >
-        <nav aria-label="Mobiel menu" className="container-site flex min-h-full flex-col pt-4 pb-8">
-          <ol className="divide-y divide-line">
+        <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-signal/20 blur-3xl" aria-hidden />
+        <div className="pointer-events-none absolute -bottom-32 -left-24 size-80 rounded-full bg-navy-soft" aria-hidden />
+
+        <nav aria-label="Mobiel menu" className="container-site relative flex min-h-full flex-col pt-6 pb-8">
+          <ul className="space-y-2">
             {nav.map((item, i) => (
-              <li key={item.href}>
+              <li
+                key={item.href}
+                className={`transition-[opacity,translate] duration-500 ease-out ${open ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`}
+                style={{ transitionDelay: open ? `${80 + i * 50}ms` : '0ms' }}
+              >
                 <Link
                   href={item.href}
                   onClick={close}
-                  className="flex items-baseline gap-4 py-4 text-ink transition-colors active:text-muted"
+                  className="group flex items-center justify-between rounded-2xl px-4 py-4 text-white transition-colors hover:bg-white/5 active:bg-white/10"
                 >
-                  <span className="w-6 font-display text-xs font-semibold text-subtle tabular-nums">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="font-display text-[1.65rem] leading-none font-semibold tracking-tight">
-                    {item.label}
+                  <span className="font-display text-[1.7rem] leading-none font-semibold tracking-tight">{item.label}</span>
+                  <span className="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition-colors group-hover:bg-signal group-active:bg-signal">
+                    <ArrowRight className="size-4" />
                   </span>
                 </Link>
               </li>
             ))}
-          </ol>
+          </ul>
 
-          <div className="mt-auto grid gap-3 pt-10">
-            <Link
-              href="/#aanvragen"
-              onClick={close}
-              className="flex min-h-13 items-center justify-between rounded-xl bg-signal px-5 font-semibold text-white"
-            >
-              Aanmelden
-              <ArrowRight />
-            </Link>
-            <a
-              href={whatsappHref(signupMessage)}
-              onClick={close}
-              {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="flex min-h-13 items-center justify-between rounded-xl bg-wa px-5 font-semibold text-white"
-            >
-              <span className="flex items-center gap-2.5">
+          <div className="mt-auto pt-10">
+            <div className="grid grid-cols-2 gap-3">
+              <Link
+                href="/#aanvragen"
+                onClick={close}
+                className="flex min-h-13 items-center justify-center gap-2 rounded-xl bg-signal px-4 font-semibold text-white"
+              >
+                Plan je les
+              </Link>
+              <a
+                href={whatsappHref(signupMessage)}
+                onClick={close}
+                {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="flex min-h-13 items-center justify-center gap-2 rounded-xl bg-wa px-4 font-semibold text-white"
+              >
                 <WhatsApp className="size-[1.1rem]" />
                 WhatsApp
-              </span>
-              <ArrowRight />
-            </a>
-            <p className="label mt-4 text-subtle">
-              {site.name} · {site.region}
-            </p>
+              </a>
+            </div>
+            {site.contact.phone && (
+              <a
+                href={`tel:${site.contact.phone.replace(/[^\d+]/g, '')}`}
+                className="mt-3 flex min-h-13 items-center justify-center gap-2.5 rounded-xl border border-white/15 font-semibold text-white"
+              >
+                <Phone className="size-[1.1rem]" />
+                Bel {site.contact.phone}
+              </a>
+            )}
+            <p className="mt-6 text-center text-sm text-white/50">{site.region}</p>
           </div>
         </nav>
       </div>

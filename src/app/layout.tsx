@@ -4,6 +4,8 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { RevealObserver } from '@/components/RevealObserver'
 import { HashLinkHandler } from '@/components/HashLinkHandler'
+import { CookieConsent } from '@/components/CookieConsent'
+import { Trackers } from '@/components/Trackers'
 import { site } from '@/content/site'
 import './globals.css'
 
@@ -88,6 +90,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <RevealObserver />
         <HashLinkHandler />
+        <CookieConsent />
+        <Trackers />
       </body>
     </html>
   )

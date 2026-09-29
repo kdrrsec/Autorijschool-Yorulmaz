@@ -43,7 +43,7 @@ export function MobileCtaBar() {
           href="/#aanvragen"
           className="flex min-h-12 items-center justify-center rounded-xl bg-ink text-[0.95rem] font-semibold text-paper"
         >
-          Aanmelden
+          Plan je les
         </Link>
         <a
           href={whatsappHref(signupMessage)}
