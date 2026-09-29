@@ -56,7 +56,7 @@ export function Header() {
       <div className="container-site flex h-16 items-center justify-between gap-6 lg:h-[4.5rem]">
         <Logo onClick={close} priority />
 
-        <nav aria-label="Hoofdmenu" className="hidden lg:block">
+        <nav aria-label="Hoofdmenu" className="hidden lg:block lg:-translate-x-5">
           <ul className="flex items-center gap-1">
             {nav.map((item) => (
               <li key={item.href}>
