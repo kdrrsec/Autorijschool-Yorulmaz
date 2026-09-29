@@ -1,6 +1,6 @@
 import { MessageSquareQuote, Star } from 'lucide-react'
 import { site } from '@/content/site'
-import { Button } from '../Button'
+import { Instagram } from '../Icons'
 import { Eyebrow } from '../Eyebrow'
 import { IconTile } from '../IconTile'
 import { Student } from '../illustrations/People'
@@ -69,12 +69,22 @@ export function Reviews() {
               <p className="mt-6 font-display text-[1.35rem] leading-snug font-medium tracking-[-0.01em] sm:text-[1.6rem]">
                 Hier komen binnenkort de ervaringen van onze leerlingen te staan.
               </p>
-              <p className="mt-3 max-w-md text-muted">
-                Benieuwd hoe een les bij ons verloopt? Het beste antwoord krijg je in een proefles.
-              </p>
-              <div className="mt-7">
-                <Button href="/#aanvragen">Proefles aanvragen</Button>
-              </div>
+              {site.contact.instagram && (
+                <>
+                  <p className="mt-3 max-w-md text-muted">
+                    Tot die tijd kun je op Instagram zien hoe het er bij ons aan toe gaat.
+                  </p>
+                  <a
+                    href={site.contact.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-xl bg-navy px-6 font-semibold text-white transition-colors hover:bg-navy-soft"
+                  >
+                    <Instagram className="size-5" />
+                    Bekijk ons op Instagram
+                  </a>
+                </>
+              )}
             </div>
             <Student className="mx-auto hidden w-40 md:block lg:w-48" />
           </div>

@@ -1,23 +1,16 @@
-import { MapPin, Smile, ThumbsUp, UserRound } from 'lucide-react'
+import { ThumbsUp, UserRound } from 'lucide-react'
 import { site } from '@/content/site'
 import { Eyebrow } from '../Eyebrow'
-import { IconTile, type Tone } from '../IconTile'
 import { PhotoFrame } from '../PhotoFrame'
 import { Instructor, Student } from '../illustrations/People'
 import { RoadSign } from '../illustrations/Deco'
-
-const values: { title: string; text: string; icon: typeof Smile; tone: Tone }[] = [
-  { title: 'Rustig', text: 'Een ontspannen sfeer in de auto, zodat je je kunt concentreren.', icon: Smile, tone: 'mint' },
-  { title: 'Duidelijk', text: 'Heldere uitleg en eerlijke feedback na iedere les.', icon: ThumbsUp, tone: 'sky' },
-]
 
 export function About() {
   const { instructor } = site
   const details = [
     instructor.name && { label: 'Instructeur', value: instructor.name, icon: UserRound },
     instructor.experience && { label: 'Ervaring', value: instructor.experience, icon: ThumbsUp },
-    { label: 'Lesgebied', value: site.region, icon: MapPin },
-  ].filter(Boolean) as { label: string; value: string; icon: typeof MapPin }[]
+  ].filter(Boolean) as { label: string; value: string; icon: typeof UserRound }[]
 
   return (
     <section id="over-ons" aria-labelledby="over-ons-title" className="py-20 sm:py-28 lg:py-32">
@@ -66,18 +59,7 @@ export function About() {
             </p>
           </div>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2" data-reveal>
-            {values.map((v) => (
-              <li key={v.title} className="flex gap-4 rounded-2xl border border-line/70 bg-white p-4 shadow-card">
-                <IconTile icon={v.icon} tone={v.tone} size="sm" />
-                <div>
-                  <p className="font-semibold">{v.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">{v.text}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-
+          {details.length > 0 && (
           <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4" data-reveal>
             {details.map((d) => {
               const Icon = d.icon
@@ -90,6 +72,7 @@ export function About() {
               )
             })}
           </dl>
+          )}
         </div>
       </div>
     </section>

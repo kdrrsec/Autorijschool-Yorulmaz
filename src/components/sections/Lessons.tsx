@@ -1,5 +1,4 @@
 import { Car, GraduationCap, Handshake, Navigation, Signpost } from 'lucide-react'
-import { Button } from '../Button'
 import { Eyebrow } from '../Eyebrow'
 
 const steps = [
@@ -60,14 +59,14 @@ export function Lessons() {
 
         <div className="relative mt-14 lg:mt-20">
         {/* Stippellijn als verbindende weg (desktop) */}
-        <div aria-hidden className="pointer-events-none absolute top-8 right-[10%] left-[10%] hidden border-t-[3px] border-dashed border-signal/50 lg:block" />
+        <div aria-hidden className="pointer-events-none absolute top-11 right-[10%] left-[10%] hidden border-t-[3px] border-dashed border-signal/50 lg:block" />
         <ol className="relative grid gap-4 md:grid-cols-2 lg:grid-cols-5 lg:gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon
             return (
               <li
                 key={step.title}
-                className="relative rounded-3xl bg-white/[0.06] p-6 ring-1 ring-white/10 backdrop-blur-[1px] lg:bg-transparent lg:p-0 lg:text-center lg:ring-0"
+                className="relative rounded-3xl bg-white/[0.06] p-6 pt-7 ring-1 ring-white/10 lg:bg-transparent lg:p-0 lg:pt-3 lg:text-center lg:ring-0"
                 data-reveal
                 style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}
               >
@@ -89,11 +88,6 @@ export function Lessons() {
         </ol>
         </div>
 
-        <div className="mt-14 flex justify-center" data-reveal>
-          <Button href="/#aanvragen" variant="signal">
-            Proefles aanvragen
-          </Button>
-        </div>
       </div>
     </section>
   )

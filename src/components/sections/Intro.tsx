@@ -1,33 +1,11 @@
 import Link from 'next/link'
-import { Euro, MapPin, MessageCircle } from 'lucide-react'
-import { site } from '@/content/site'
 import { Eyebrow } from '../Eyebrow'
 import { ArrowRight } from '../Icons'
-import { IconTile } from '../IconTile'
-
-const facts = [
-  { label: 'Lesgebied', value: site.region, icon: MapPin, tone: 'sky' as const },
-  { label: 'Tarieven', value: 'Rijles vanaf €60', icon: Euro, tone: 'signal' as const },
-  { label: 'Aanmelden', value: 'Via WhatsApp of het formulier', icon: MessageCircle, tone: 'mint' as const },
-]
 
 export function Intro() {
   return (
-    <section aria-labelledby="intro-title" className="pt-8 sm:pt-10">
+    <section aria-labelledby="intro-title">
       <div className="container-site">
-        {/* Snelle feiten */}
-        <ul className="grid gap-1 rounded-3xl border border-line/70 bg-white p-2 shadow-card sm:grid-cols-3 sm:p-3">
-          {facts.map((f) => (
-            <li key={f.label} className="flex items-center gap-4 rounded-2xl p-3 sm:p-4">
-              <IconTile icon={f.icon} tone={f.tone} size="sm" />
-              <div className="leading-snug">
-                <p className="label text-subtle">{f.label}</p>
-                <p className="mt-1 font-semibold">{f.value}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-
         <div className="grid gap-10 py-20 sm:py-24 lg:grid-cols-12 lg:gap-x-10 lg:py-28">
           <div className="lg:col-span-6">
             <Eyebrow>Autorijschool Yorulmaz</Eyebrow>

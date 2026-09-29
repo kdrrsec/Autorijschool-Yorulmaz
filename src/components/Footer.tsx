@@ -12,7 +12,7 @@ export function Footer() {
         <div className="lg:col-span-5">
           <Logo className="h-14 sm:h-16" />
           <p className="mt-6 max-w-xs text-paper/60">
-            Persoonlijke rijlessen in {site.region}.
+            Rijschool in {site.region}.
           </p>
           <Link
             href="/#aanvragen"

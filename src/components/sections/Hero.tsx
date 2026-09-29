@@ -6,7 +6,7 @@ import { License3D } from '../illustrations/License3D'
 import { LessonCar } from '../illustrations/LessonCar'
 import { Cone, Road, TrafficLight } from '../illustrations/Deco'
 
-const checks = ['Persoonlijke begeleiding', 'Flexibel lessen plannen', 'Losse lessen of voordelig pakket']
+const checks = ['Rijles vanaf €60', 'Pakketten incl. praktijkexamen', 'Lesgebied Doesburg e.o.']
 
 export function Hero() {
   return (
@@ -45,8 +45,8 @@ export function Hero() {
               data-reveal
               style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
             >
-              Persoonlijke rijlessen in Doesburg en omgeving. Rustig uitgelegd, op jouw tempo en met
-              een duidelijk plan richting het examen.
+              Rustig uitgelegd, op jouw tempo en met een duidelijk plan richting het examen. Zo
+              haal je niet alleen je rijbewijs, maar rijd je daarna ook zelfverzekerd verder.
             </p>
 
             <ul className="mt-6 grid gap-2.5 sm:grid-cols-2" data-reveal style={{ '--reveal-delay': '200ms' } as React.CSSProperties}>
