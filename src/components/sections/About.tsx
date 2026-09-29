@@ -2,8 +2,9 @@ import { ThumbsUp, UserRound } from 'lucide-react'
 import { site } from '@/content/site'
 import { Eyebrow } from '../Eyebrow'
 import { PhotoFrame } from '../PhotoFrame'
-import { Instructor, Student } from '../illustrations/People'
-import { RoadSign } from '../illustrations/Deco'
+import Image from 'next/image'
+import lesauto from '../../../public/images/lesauto.webp'
+import { Road } from '../illustrations/Deco'
 
 export function About() {
   const { instructor } = site
@@ -23,14 +24,21 @@ export function About() {
               className="aspect-[4/5] rounded-3xl"
             />
           ) : (
-            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-signal-soft sm:aspect-[4/3] lg:aspect-[4/5]" data-reveal="image">
-              <div className="absolute -top-10 -left-10 size-56 rounded-full bg-white/60" aria-hidden />
-              <div className="absolute inset-x-0 bottom-0 h-[18%] bg-[#ffd3d7]" aria-hidden />
-              <RoadSign className="absolute bottom-[14%] left-[8%] w-[13%]" />
-              <Instructor className="absolute bottom-[4%] left-[20%] w-[34%] sm:w-[28%] lg:left-[18%] lg:w-[40%]" />
-              <Student className="absolute right-[6%] bottom-[4%] w-[34%] sm:right-[16%] sm:w-[28%] lg:right-[4%] lg:w-[40%]" />
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-sky-deep" data-reveal="image">
+              <div className="absolute -top-16 -right-16 size-64 rounded-full bg-white/60" aria-hidden />
+              <div className="absolute top-1/3 -left-10 size-24 rounded-full bg-white/40" aria-hidden />
+              <div className="absolute inset-x-0 bottom-0 h-[20%]">
+                <Road className="h-full w-full" />
+              </div>
+              <Image
+                src={lesauto}
+                alt="De lesauto van Autorijschool Yorulmaz: een zwarte Volkswagen Polo met het Yorulmaz-logo en L-bord"
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="absolute bottom-[7%] left-1/2 w-[98%] max-w-none -translate-x-1/2 drop-shadow-[0_18px_18px_rgba(12,18,28,0.35)]"
+              />
               <div className="absolute top-5 left-5 rounded-2xl bg-white px-4 py-3 shadow-card">
-                <p className="text-sm font-bold">Samen naar je rijbewijs</p>
+                <p className="label text-subtle">Onze lesauto</p>
+                <p className="mt-1 font-display font-semibold">Volkswagen Polo</p>
               </div>
             </div>
           )}
@@ -50,7 +58,8 @@ export function About() {
             {instructor.bio && <p className="text-[1.15rem] leading-relaxed">{instructor.bio}</p>}
             <p>
               Autorijschool Yorulmaz is een rijschool uit Doesburg. We geven les in Doesburg en de
-              plaatsen eromheen, in het verkeer waar je straks ook zelf in rijdt.
+              plaatsen eromheen, in het verkeer waar je straks ook zelf in rijdt. Je lest in onze
+              zwarte Volkswagen Polo, herkenbaar aan het Yorulmaz-logo en het L-bord op het dak.
             </p>
             <p>
               Een goede rijles is wat ons betreft rustig en duidelijk. Je mag fouten maken, vragen
