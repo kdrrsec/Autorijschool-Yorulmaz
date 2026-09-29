@@ -1,4 +1,4 @@
-import { CalendarCheck, Check, MapPin } from 'lucide-react'
+import { CalendarCheck, Check } from 'lucide-react'
 import { site, whatsappHref, trialLessonMessage } from '@/content/site'
 import { Button } from '../Button'
 import { PhotoFrame } from '../PhotoFrame'
@@ -23,14 +23,9 @@ export function Hero() {
 
         <div className="container-site relative grid items-center gap-y-6 pt-10 pb-0 sm:pt-14 lg:grid-cols-12 lg:gap-x-8 lg:pt-16">
           <div className="lg:col-span-6 lg:pb-44">
-            <p className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-navy shadow-card" data-reveal>
-              <MapPin className="size-4 text-signal-deep" strokeWidth={2.2} />
-              Autorijschool uit {site.city}
-            </p>
-
             <h1
               id="hero-title"
-              className="mt-6 text-[2.5rem] leading-[1.03] font-bold tracking-[-0.025em] sm:text-[3.3rem] lg:text-[3.4rem] xl:text-[3.9rem]"
+              className="text-[2.5rem] leading-[1.03] font-bold tracking-[-0.025em] sm:text-[3.3rem] lg:text-[3.4rem] xl:text-[3.9rem]"
               data-reveal
               style={{ '--reveal-delay': '80ms' } as React.CSSProperties}
             >
