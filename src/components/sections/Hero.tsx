@@ -90,7 +90,7 @@ export function Hero() {
                 </div>
                 <License3D className="absolute top-[6%] right-0 w-[56%]" />
 
-                <div className="absolute -top-[10%] left-[4%] hidden animate-float items-center xl:flex gap-3 rounded-2xl bg-white px-4 py-3 shadow-lift">
+                <div className="absolute -top-[20%] left-[4%] hidden animate-float items-center xl:flex gap-3 rounded-2xl bg-white px-4 py-3 shadow-lift">
                   <span className="inline-flex size-10 items-center justify-center rounded-xl bg-signal-soft text-signal-deep">
                     <CalendarCheck className="size-5" strokeWidth={2} />
                   </span>
