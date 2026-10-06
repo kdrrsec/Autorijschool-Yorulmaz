@@ -31,8 +31,11 @@ export function About() {
               <div className="absolute inset-x-[-10%] top-[-20%] h-[70%] rounded-[50%] bg-white/70 blur-3xl" aria-hidden />
               <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-b from-transparent via-[#cad6e8] to-[#b9c8df]" aria-hidden />
               {/* Contactschaduw onder de auto */}
-              <div className="absolute bottom-[12%] left-1/2 h-[6%] w-[90%] -translate-x-1/2 rounded-[50%] bg-[#0c121c]/30 blur-xl" aria-hidden />
-              <div className="absolute bottom-[14%] left-[49%] h-[2%] w-[80%] -translate-x-1/2 rounded-[50%] bg-[#0c121c]/70 blur-[6px]" aria-hidden />
+              {/* Schaduwen in het perspectief van de foto: achterwiel staat hoger dan voorwiel */}
+              <span className="absolute h-[7%] w-[86%] rounded-[50%] bg-[#0c121c]/35 blur-xl" style={{ left: '46%', bottom: '17%', transform: 'translate(-50%, 50%) rotate(5.6deg)' }} aria-hidden />
+              <span className="absolute h-[2.6%] w-[70%] rounded-[50%] bg-[#0c121c]/55 blur-[6px]" style={{ left: '42%', bottom: '17.4%', transform: 'translate(-50%, 50%) rotate(5.6deg)' }} aria-hidden />
+              <span className="absolute h-[2.4%] w-[13%] rounded-[50%] bg-[#0c121c]/80 blur-[3px]" style={{ left: '11.7%', bottom: '20.2%', transform: 'translate(-50%, 50%)' }} aria-hidden />
+              <span className="absolute h-[2.8%] w-[15%] rounded-[50%] bg-[#0c121c]/85 blur-[3px]" style={{ left: '72%', bottom: '14.3%', transform: 'translate(-50%, 50%)' }} aria-hidden />
               <Image
                 src={lesauto}
                 alt="De lesauto van Autorijschool Yorulmaz: een zwarte Volkswagen Polo met het Yorulmaz-logo en L-bord"
