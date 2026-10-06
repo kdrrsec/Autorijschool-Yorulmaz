@@ -104,7 +104,6 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
     >
       {featured && (
         <>
-          <div className="pointer-events-none absolute -top-28 -right-28 size-72 rounded-full bg-signal/25 blur-3xl" aria-hidden />
           <div className="pointer-events-none absolute -bottom-24 -left-16 size-60 rounded-full bg-navy-soft" aria-hidden />
         </>
       )}

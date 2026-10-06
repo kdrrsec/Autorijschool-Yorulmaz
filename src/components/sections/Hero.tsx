@@ -81,8 +81,11 @@ export function Hero() {
               <div className="relative mx-auto aspect-[6/5] w-full max-w-[36rem]">
                 <TrafficLight className="absolute bottom-[5rem] left-[2%] w-[8%] lg:bottom-[7rem]" />
                 <Cone className="absolute right-[3%] bottom-2 w-[9%] lg:bottom-3" />
-                <div className="absolute bottom-[2.7rem] left-[13%] w-[74%] animate-drive lg:bottom-[3.8rem]">
-                  <div className="absolute inset-x-[4%] -bottom-[3%] h-[9%] rounded-[50%] bg-[#05070b]/55 blur-md" aria-hidden />
+                <div className="absolute bottom-[2.4rem] left-[13%] w-[74%] lg:bottom-[3.4rem]">
+                  {/* Schaduw onder de auto, zodat hij op de weg staat */}
+                  <div className="absolute inset-x-[2%] -bottom-[7%] h-[13%] rounded-[50%] bg-black/80 blur-[9px]" aria-hidden />
+                  <div className="absolute left-[4%] -bottom-[3%] h-[6%] w-[17%] rounded-[50%] bg-black blur-[4px]" aria-hidden />
+                  <div className="absolute left-[71.5%] -bottom-[3%] h-[6%] w-[17%] rounded-[50%] bg-black blur-[4px]" aria-hidden />
                   <Image
                     src={lesautoZij}
                     alt="De lesauto van Autorijschool Yorulmaz: zwarte Volkswagen Polo met logo en L-bord"
