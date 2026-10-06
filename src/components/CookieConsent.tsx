@@ -62,7 +62,7 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-text"
-      className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-lg rounded-3xl bg-white p-5 shadow-[0_24px_60px_-12px_rgba(12,18,28,0.45)] ring-1 ring-navy/10 sm:inset-x-auto sm:right-auto sm:bottom-6 sm:left-6 sm:p-6"
+      className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-lg rounded-3xl bg-white p-5 shadow-[0_20px_50px_rgba(12,18,28,0.22)] ring-1 ring-navy/10 sm:inset-x-auto sm:right-auto sm:bottom-6 sm:left-6 sm:p-6"
     >
       <div className="flex items-start gap-4">
         <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-2xl bg-signal-soft text-signal-deep" aria-hidden>

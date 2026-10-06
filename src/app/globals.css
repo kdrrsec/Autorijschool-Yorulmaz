@@ -21,8 +21,9 @@
   --color-rose: #fcefd6;
   --color-amber-deep: #8f5e0c;
 
-  --shadow-card: 0 1px 2px rgba(12, 18, 28, 0.04), 0 8px 24px -8px rgba(22, 33, 58, 0.12);
-  --shadow-lift: 0 2px 4px rgba(12, 18, 28, 0.05), 0 22px 44px -16px rgba(22, 33, 58, 0.28);
+  /* Geen negatieve spread: dan volgt de schaduw de ronde hoeken zonder vlekjes in de hoeken. */
+  --shadow-card: 0 1px 2px rgba(12, 18, 28, 0.04), 0 8px 24px rgba(22, 33, 58, 0.07);
+  --shadow-lift: 0 2px 4px rgba(12, 18, 28, 0.04), 0 18px 40px rgba(22, 33, 58, 0.13);
 
   --animate-float-slow: float 7s ease-in-out infinite;
   --animate-float: float 5s ease-in-out infinite;
@@ -188,6 +189,10 @@
 .js [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Alleen beelden knippen; anders snijdt clip-path de schaduw van kaarten af (vierkante hoekjes). */
+.js [data-reveal='image'].is-visible {
   clip-path: inset(0 0 0 0);
 }
 

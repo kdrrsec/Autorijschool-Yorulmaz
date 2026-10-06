@@ -72,7 +72,7 @@ export function Prices() {
 function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean; delay: number }) {
   const t = featured
     ? {
-        card: 'bg-navy text-paper shadow-[0_30px_60px_-24px_rgba(22,33,58,0.6)] md:-translate-y-3',
+        card: 'bg-navy text-paper shadow-[0_24px_50px_rgba(22,33,58,0.28)] md:-translate-y-3',
         muted: 'text-paper/60',
         line: 'border-white/12',
         tile: 'bg-white/10 text-white',
@@ -188,7 +188,7 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
 function LessonCard({ price, delay }: { price: Price; delay: number }) {
   return (
     <li
-      className="group relative flex flex-wrap items-center gap-x-5 gap-y-4 overflow-hidden rounded-[1.75rem] bg-white p-5 shadow-card ring-1 ring-navy/5 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lift sm:flex-nowrap sm:gap-6 sm:p-6"
+      className="group relative flex flex-wrap items-center gap-x-5 gap-y-4 rounded-[1.75rem] bg-white p-5 shadow-card ring-1 ring-navy/5 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lift sm:flex-nowrap sm:gap-6 sm:p-6"
       data-reveal
       style={{ '--reveal-delay': `${delay}ms` } as React.CSSProperties}
     >
