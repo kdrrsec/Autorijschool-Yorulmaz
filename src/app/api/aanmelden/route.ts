@@ -39,7 +39,8 @@ function field(data: Record<string, unknown>, key: keyof typeof limits) {
 }
 
 export async function POST(request: Request) {
-  const apiKey = process.env.RESEND_API_KEY
+  // Ook de kleine-letter-variant, zoals die in Vercel is aangemaakt.
+  const apiKey = process.env.RESEND_API_KEY ?? process.env.resend_api_key
   const to = process.env.CONTACT_TO_EMAIL
   const from = process.env.CONTACT_FROM_EMAIL
   if (!apiKey || !to || !from) {
