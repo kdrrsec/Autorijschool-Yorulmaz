@@ -44,6 +44,7 @@ export async function POST(request: Request) {
   const to = process.env.CONTACT_TO_EMAIL
   const from = process.env.CONTACT_FROM_EMAIL
   if (!apiKey || !to || !from) {
+    console.warn('Formulier: e-mail niet ingesteld', { apiKey: !!apiKey, to: !!to, from: !!from })
     return NextResponse.json({ error: 'not_configured' }, { status: 503 })
   }
 
@@ -57,6 +58,7 @@ export async function POST(request: Request) {
   // Honeypot en invultijd: bots vullen het verborgen veld in of versturen meteen.
   const startedAt = Number(data.startedAt)
   if (data.website || (Number.isFinite(startedAt) && Date.now() - startedAt < 2500)) {
+    console.info('Formulier: als spam genegeerd')
     return NextResponse.json({ ok: true })
   }
 
@@ -70,6 +72,7 @@ export async function POST(request: Request) {
   }
 
   if (!lead.name || (!lead.phone && !lead.email)) {
+    console.info('Formulier: onvolledig')
     return NextResponse.json({ error: 'invalid' }, { status: 400 })
   }
   if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
@@ -78,6 +81,7 @@ export async function POST(request: Request) {
 
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'onbekend'
   if (rateLimited(ip)) {
+    console.info('Formulier: te vaak verstuurd')
     return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
   }
 
@@ -119,5 +123,7 @@ async function sendEmail(apiKey: string, email: Email) {
     console.error('E-mail versturen mislukt', email.subject, res?.status, await res?.text().catch(() => ''))
     return false
   }
+  const { id } = (await res.json().catch(() => ({}))) as { id?: string }
+  console.info('E-mail verstuurd via Resend', email.subject, id)
   return true
 }
