@@ -28,7 +28,7 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'Autorijschool Yorulmaz | Rijschool in Doesburg',
+    default: 'Autorijschool Yorulmaz | Met vertrouwen de weg op',
     template: '%s | Autorijschool Yorulmaz',
   },
   description,
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
     locale: 'nl_NL',
     url: '/',
     siteName: site.name,
-    title: 'Autorijschool Yorulmaz | Rijschool in Doesburg',
+    title: 'Autorijschool Yorulmaz | Met vertrouwen de weg op',
     description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Autorijschool Yorulmaz | Rijschool in Doesburg',
+    title: 'Autorijschool Yorulmaz | Met vertrouwen de weg op',
     description,
   },
   formatDetection: { telephone: false },
