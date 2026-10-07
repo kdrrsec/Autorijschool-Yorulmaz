@@ -71,18 +71,7 @@ export function Footer() {
 
       <div className="border-t border-paper/10">
         <div className="container-site flex flex-col gap-3 py-6 text-sm text-paper/50 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-            <p>© {year} {site.name}</p>
-            <a
-              href="https://axaweb.nl"
-              target="_blank"
-              rel="noopener"
-              className="inline-flex min-h-10 items-center gap-2 transition-colors hover:text-paper"
-            >
-              Powered by
-              <Image src={axaweb} alt="AxaWeb" width={20} height={20} className="size-5" />
-            </a>
-          </div>
+          <p>© {year} {site.name}</p>
           <ul className="flex flex-wrap gap-x-6 gap-y-0">
             <li>
               <Link href="/privacy" className="inline-flex min-h-10 items-center transition-colors hover:text-paper">
@@ -98,6 +87,17 @@ export function Footer() {
               <CookieSettingsLink className="inline-flex min-h-10 items-center transition-colors hover:text-paper" />
             </li>
           </ul>
+        </div>
+        <div className="container-site flex justify-center pt-2 pb-8 text-sm text-paper/50">
+          <a
+            href="https://axaweb.nl"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex min-h-10 items-center gap-2 transition-colors hover:text-paper"
+          >
+            Powered by
+            <Image src={axaweb} alt="AxaWeb" width={20} height={20} className="size-5" />
+          </a>
         </div>
       </div>
     </footer>
