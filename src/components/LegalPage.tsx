@@ -16,7 +16,7 @@ export function LegalPage({
       <div className="container-site py-16 sm:py-24">
         <div className="max-w-2xl">
           <Eyebrow reveal={false}>{label}</Eyebrow>
-          <h1 className="mt-5 text-[2.3rem] leading-[1.05] font-bold tracking-[-0.025em] sm:text-[3rem]">
+          <h1 className="mt-5 text-[clamp(1.75rem,9vw,2.3rem)] leading-[1.05] font-bold tracking-[-0.025em] hyphens-auto sm:text-[3rem]">
             {title}
           </h1>
           <p className="mt-4 text-sm text-subtle">Laatst bijgewerkt: {updated}</p>

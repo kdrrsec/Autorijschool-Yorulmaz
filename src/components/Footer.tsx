@@ -26,10 +26,10 @@ export function Footer() {
 
         <nav aria-label="Footermenu" className="lg:col-span-3 lg:col-start-7">
           <p className="label text-paper/45">Menu</p>
-          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 lg:grid-cols-1">
+          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-1 lg:grid-cols-1">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-paper/80 transition-colors hover:text-paper">
+                <Link href={item.href} className="inline-flex min-h-10 items-center text-paper/80 transition-colors hover:text-paper">
                   {item.label}
                 </Link>
               </li>
@@ -39,14 +39,14 @@ export function Footer() {
 
         <div className="lg:col-span-3">
           <p className="label text-paper/45">Volg en bericht</p>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-5 space-y-1">
             {site.contact.instagram && (
               <li>
                 <a
                   href={site.contact.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-paper/80 transition-colors hover:text-paper"
+                  className="inline-flex min-h-10 items-center gap-3 text-paper/80 transition-colors hover:text-paper"
                 >
                   <Instagram className="size-[1.1rem]" />
                   Instagram
@@ -57,7 +57,7 @@ export function Footer() {
               <a
                 href={whatsappHref()}
                 {...(site.contact.whatsapp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="inline-flex items-center gap-3 text-paper/80 transition-colors hover:text-paper"
+                className="inline-flex min-h-10 items-center gap-3 text-paper/80 transition-colors hover:text-paper"
               >
                 <WhatsApp className="size-[1.1rem]" />
                 WhatsApp
@@ -70,19 +70,19 @@ export function Footer() {
       <div className="border-t border-paper/10">
         <div className="container-site flex flex-col gap-3 py-6 text-sm text-paper/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {site.name}</p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap gap-x-6 gap-y-0">
             <li>
-              <Link href="/privacy" className="transition-colors hover:text-paper">
+              <Link href="/privacy" className="inline-flex min-h-10 items-center transition-colors hover:text-paper">
                 Privacyverklaring
               </Link>
             </li>
             <li>
-              <Link href="/cookies" className="transition-colors hover:text-paper">
+              <Link href="/cookies" className="inline-flex min-h-10 items-center transition-colors hover:text-paper">
                 Cookiebeleid
               </Link>
             </li>
             <li>
-              <CookieSettingsLink className="transition-colors hover:text-paper" />
+              <CookieSettingsLink className="inline-flex min-h-10 items-center transition-colors hover:text-paper" />
             </li>
           </ul>
         </div>

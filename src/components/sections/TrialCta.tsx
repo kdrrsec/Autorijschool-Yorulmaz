@@ -8,8 +8,8 @@ export function TrialCta() {
       <div className="container-site">
         <div className="relative overflow-hidden rounded-[2rem] bg-navy px-6 py-12 text-paper sm:px-12 sm:py-16 lg:px-16">
           <div className="pointer-events-none absolute -right-20 -bottom-32 size-96 rounded-full bg-navy-soft" aria-hidden />
-          <div className="pointer-events-none absolute top-8 right-[38%] size-3 rounded-full bg-signal" aria-hidden />
-          <div className="pointer-events-none absolute bottom-10 left-[46%] size-2 rounded-full bg-white/40" aria-hidden />
+          <div className="pointer-events-none absolute hidden lg:block top-8 right-[38%] size-3 rounded-full bg-signal" aria-hidden />
+          <div className="pointer-events-none absolute hidden lg:block bottom-10 left-[46%] size-2 rounded-full bg-white/40" aria-hidden />
 
           <div className="relative grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
