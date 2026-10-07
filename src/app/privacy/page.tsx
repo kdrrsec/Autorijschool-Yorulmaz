@@ -35,9 +35,11 @@ export default function PrivacyPage() {
 
       <h2>Het contactformulier</h2>
       <p>
-        Het formulier op deze website slaat zelf geen gegevens op. Na het verzenden wordt je bericht
-        klaargezet in WhatsApp of in je e-mailprogramma. Pas als je het daar verstuurt, ontvangen wij
-        het. Voor WhatsApp geldt daarnaast het privacybeleid van WhatsApp.
+        Het formulier op deze website slaat zelf geen gegevens op. Wat je invult, sturen we als e-mail
+        naar onze eigen mailbox. Daarvoor gebruiken we de e-maildienst Resend, die je bericht alleen
+        doorstuurt en het niet voor eigen doeleinden gebruikt. Lukt dat versturen een keer niet, dan
+        wordt je bericht klaargezet in WhatsApp; pas als je het daar verstuurt, ontvangen wij het. Voor
+        WhatsApp geldt daarnaast het privacybeleid van WhatsApp.
       </p>
 
       <h2>Cookies en statistieken</h2>

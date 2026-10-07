@@ -42,6 +42,18 @@ src/
   content/site.ts alle bedrijfsgegevens
 ```
 
+## Formulier per e-mail (Resend)
+
+Het aanmeld- en contactformulier stuurt een opgemaakte e-mail via [Resend](https://resend.com) (route `src/app/api/aanmelden/route.ts`, opmaak in `src/lib/lead-email.ts`). Zet in Vercel:
+
+| Variabele | Voorbeeld | Wat |
+| --- | --- | --- |
+| `RESEND_API_KEY` | `re_...` | API-sleutel uit het Resend-dashboard |
+| `CONTACT_TO_EMAIL` | `info@jouwdomein.nl` | Waar aanmeldingen binnenkomen (meerdere: komma-gescheiden) |
+| `CONTACT_FROM_EMAIL` | `Website Yorulmaz <website@jouwdomein.nl>` | Afzender op een bij Resend geverifieerd domein |
+
+Zonder eigen domein kan tijdelijk `Website Yorulmaz <onboarding@resend.dev>` als afzender; Resend bezorgt dan alleen op het e-mailadres van je Resend-account. Beantwoorden van de e-mail gaat direct naar de leerling (reply-to). Zolang de variabelen ontbreken, valt het formulier terug op WhatsApp. Spam wordt beperkt met een verborgen veld, een minimale invultijd en een limiet per IP-adres.
+
 ## Cookies, Google Analytics en Meta-pixel
 
 Tracking staat standaard uit. Zet in Vercel (Settings → Environment Variables) één of beide variabelen en deploy opnieuw:

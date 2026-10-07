@@ -1,28 +1,54 @@
 'use client'
 
 import Link from 'next/link'
-import { useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { site } from '@/content/site'
 import { ChevronDown } from 'lucide-react'
 import { ArrowRight } from './Icons'
 
 type Subject = 'aanmelden' | 'vraag'
-type Status = { kind: 'idle' } | { kind: 'error'; message: string } | { kind: 'sent'; via: string } | { kind: 'unavailable' }
+type Status =
+  | { kind: 'idle' }
+  | { kind: 'sending' }
+  | { kind: 'error'; message: string }
+  | { kind: 'sent' }
+  | { kind: 'sent-elsewhere'; via: string }
+  | { kind: 'unavailable' }
 
 /**
- * Eenvoudig contactformulier zonder backend. Bij verzenden wordt het bericht
- * klaargezet in WhatsApp (of anders in het e-mailprogramma). Zolang er nog
- * geen WhatsApp-nummer of e-mailadres is ingesteld, krijgt de bezoeker een
- * nette melding.
+ * Contactformulier. Het bericht gaat via /api/aanmelden als e-mail naar de
+ * rijschool. Is de e-mailkoppeling (nog) niet ingesteld, dan wordt het bericht
+ * klaargezet in WhatsApp of in het e-mailprogramma van de bezoeker.
  */
 export function ContactForm() {
   const id = useId()
   const [subject, setSubject] = useState<Subject>('aanmelden')
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
+  const startedAt = useRef(0)
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    startedAt.current = Date.now()
+  }, [])
+
+  function fallback(heading: string, body: string) {
+    if (site.contact.whatsapp) {
+      window.dispatchEvent(new Event('yorulmaz:lead'))
+      setStatus({ kind: 'sent-elsewhere', via: 'WhatsApp' })
+      window.location.href = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(body)}`
+    } else if (site.contact.email) {
+      window.dispatchEvent(new Event('yorulmaz:lead'))
+      setStatus({ kind: 'sent-elsewhere', via: 'je e-mailprogramma' })
+      window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(heading)}&body=${encodeURIComponent(body)}`
+    } else {
+      setStatus({ kind: 'unavailable' })
+    }
+  }
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
+    if (status.kind === 'sending') return
+    const form = e.currentTarget
+    const data = new FormData(form)
     const name = String(data.get('naam') ?? '').trim()
     const phone = String(data.get('telefoon') ?? '').trim()
     const email = String(data.get('email') ?? '').trim()
@@ -50,17 +76,49 @@ export function ContactForm() {
     if (message) lines.push('', message)
     const body = lines.join('\n')
 
-    if (site.contact.whatsapp) {
-      window.open(`https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(body)}`, '_blank', 'noopener')
-      window.dispatchEvent(new Event('yorulmaz:lead'))
-      setStatus({ kind: 'sent', via: 'WhatsApp' })
-    } else if (site.contact.email) {
-      window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(heading)}&body=${encodeURIComponent(body)}`
-      window.dispatchEvent(new Event('yorulmaz:lead'))
-      setStatus({ kind: 'sent', via: 'je e-mailprogramma' })
-    } else {
-      setStatus({ kind: 'unavailable' })
+    setStatus({ kind: 'sending' })
+    let res: Response | null = null
+    try {
+      res = await fetch('/api/aanmelden', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject,
+          name,
+          phone,
+          email,
+          interest: subject === 'aanmelden' ? interest : '',
+          message,
+          website: String(data.get('website') ?? ''),
+          startedAt: startedAt.current,
+        }),
+      })
+    } catch {
+      res = null
     }
+
+    if (res?.ok) {
+      window.dispatchEvent(new Event('yorulmaz:lead'))
+      setStatus({ kind: 'sent' })
+      form.reset()
+      return
+    }
+    if (res?.status === 503) {
+      fallback(heading, body)
+      return
+    }
+    if (res?.status === 429) {
+      setStatus({ kind: 'error', message: 'Je hebt al een paar berichten gestuurd. Probeer het later nog eens of stuur ons een WhatsApp.' })
+      return
+    }
+    if (res?.status === 400) {
+      setStatus({ kind: 'error', message: 'Controleer je gegevens en probeer het opnieuw.' })
+      return
+    }
+    setStatus({
+      kind: 'error',
+      message: 'Versturen lukte niet. Probeer het nog eens, of stuur ons een bericht via WhatsApp.',
+    })
   }
 
   const field =
@@ -125,6 +183,14 @@ export function ContactForm() {
           </div>
         )}
 
+        {/* Verborgen veld tegen spambots */}
+        <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+          <label>
+            Website
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          </label>
+        </div>
+
         <div>
           <label htmlFor={`${id}-naam`} className={labelCls}>
             Naam <span className="font-normal text-subtle">(verplicht)</span>
@@ -164,6 +230,11 @@ export function ContactForm() {
           {status.kind === 'error' && <p className="border-l-2 border-[#b3261e] pl-3 text-[#8c1d18]">{status.message}</p>}
           {status.kind === 'sent' && (
             <p className="border-l-2 border-wa pl-3">
+              Bedankt, je bericht is verstuurd! We nemen zo snel mogelijk contact met je op.
+            </p>
+          )}
+          {status.kind === 'sent-elsewhere' && (
+            <p className="border-l-2 border-wa pl-3">
               Je bericht staat klaar in {status.via}. Verstuur het daar om je aanvraag af te ronden.
             </p>
           )}
@@ -177,9 +248,14 @@ export function ContactForm() {
 
         <button
           type="submit"
-          className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-navy px-6 font-semibold text-paper transition-colors hover:bg-navy-soft active:translate-y-px sm:w-auto"
+          disabled={status.kind === 'sending'}
+          className="group disabled:cursor-wait disabled:opacity-70 inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-navy px-6 font-semibold text-paper transition-colors hover:bg-navy-soft active:translate-y-px sm:w-auto"
         >
-          {subject === 'aanmelden' ? 'Aanmelding versturen' : 'Verstuur je vraag'}
+          {status.kind === 'sending'
+            ? 'Bezig met versturen…'
+            : subject === 'aanmelden'
+              ? 'Aanmelding versturen'
+              : 'Verstuur je vraag'}
           <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </button>
 
