@@ -120,10 +120,10 @@ async function sendEmail(apiKey: string, email: Email) {
   }).catch(() => null)
 
   if (!res?.ok) {
-    console.error('E-mail versturen mislukt', email.subject, res?.status, await res?.text().catch(() => ''))
+    console.error('E-mail versturen mislukt', res?.status, await res?.text().catch(() => ''))
     return false
   }
   const { id } = (await res.json().catch(() => ({}))) as { id?: string }
-  console.info('E-mail verstuurd via Resend', email.subject, id)
+  console.info('E-mail verstuurd via Resend', id)
   return true
 }
