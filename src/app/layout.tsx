@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     'Rijbewijs halen Doesburg',
     'Rijschool Giesbeek',
     'Autorijschool Giesbeek',
+    'Rijschool Yorulmaz',
+    'Rijlessen Giesbeek',
   ],
   alternates: { canonical: '/' },
   openGraph: {
@@ -57,6 +59,10 @@ export const metadata: Metadata = {
     description,
   },
   formatDetection: { telephone: false },
+  // Google Search Console: zet GOOGLE_SITE_VERIFICATION in Vercel (alleen de code uit de meta-tag)
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 }
 
 export const viewport: Viewport = {

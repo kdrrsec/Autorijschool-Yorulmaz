@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { nav, site, whatsappHref } from '@/content/site'
+import { locations } from '@/content/locations'
 import { Logo } from './Logo'
 import { CookieSettingsLink } from './CookieSettingsLink'
 import { ArrowRight, Instagram, Mail, WhatsApp } from './Icons'
@@ -33,6 +34,13 @@ export function Footer() {
               <li key={item.href}>
                 <Link href={item.href} className="inline-flex min-h-10 items-center text-paper/80 transition-colors hover:text-paper">
                   {item.label}
+                </Link>
+              </li>
+            ))}
+            {locations.map((l) => (
+              <li key={l.slug}>
+                <Link href={`/${l.slug}`} className="inline-flex min-h-10 items-center text-paper/80 transition-colors hover:text-paper">
+                  Rijschool {l.place}
                 </Link>
               </li>
             ))}

@@ -42,6 +42,13 @@ src/
   content/site.ts alle bedrijfsgegevens
 ```
 
+## SEO
+
+- **Plaatspagina's**: `/rijschool-doesburg` en `/rijschool-giesbeek`, ingesteld in `src/content/locations.ts`. Een plaats toevoegen = een item toevoegen plus een map in `src/app/` (kopieer een bestaande). Alleen plaatsen waar echt les wordt gegeven.
+- **Veelgestelde vragen**: `src/content/faq.ts`, opgebouwd uit de echte prijzen en pakketten.
+- **Structured data** (DrivingSchool, WebSite, FAQPage, BreadcrumbList): `src/lib/structured-data.ts`.
+- **Google Search Console**: verifieer bij voorkeur via een DNS-TXT-record (domeineigendom). Kies je de HTML-tag-methode, zet dan alleen de code uit `content="..."` in Vercel als `GOOGLE_SITE_VERIFICATION` en deploy opnieuw.
+
 ## Formulier per e-mail (Resend)
 
 Het aanmeld- en contactformulier stuurt een opgemaakte e-mail via [Resend](https://resend.com) (route `src/app/api/aanmelden/route.ts`, opmaak in `src/lib/lead-email.ts`). Zet in Vercel:
