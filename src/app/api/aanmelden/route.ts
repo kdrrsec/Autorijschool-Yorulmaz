@@ -1,16 +1,19 @@
 import { NextResponse } from 'next/server'
-import { buildLeadEmail, type Lead } from '@/lib/lead-email'
+import { buildConfirmationEmail, buildLeadEmail, type Lead } from '@/lib/lead-email'
 
 /**
  * Ontvangt het contactformulier en verstuurt het als nette e-mail via Resend.
+ * Heeft de leerling een e-mailadres ingevuld, dan krijgt die een bevestiging.
  *
  * Nodig in de hostingomgeving:
  * - RESEND_API_KEY      API-sleutel van resend.com
  * - CONTACT_TO_EMAIL    Waar de aanmeldingen binnenkomen
  * - CONTACT_FROM_EMAIL  Afzender op een bij Resend geverifieerd domein,
  *                       bijv. "Website Yorulmaz <website@jouwdomein.nl>"
+ * - CONTACT_CONFIRMATION (optioneel) "off" zet de bevestigingsmail aan de
+ *                       leerling uit
  *
- * Zonder deze instellingen antwoordt de route met 503 en valt het formulier
+ * Zonder de eerste drie antwoordt de route met 503 en valt het formulier
  * terug op WhatsApp.
  */
 
@@ -77,25 +80,43 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
   }
 
-  const { subject, html, text } = buildLeadEmail(lead)
+  const recipients = to.split(',').map((s) => s.trim()).filter(Boolean)
 
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from,
-      to: to.split(',').map((s) => s.trim()).filter(Boolean),
-      subject,
-      html,
-      text,
-      ...(lead.email ? { reply_to: lead.email } : {}),
-    }),
-  }).catch(() => null)
-
-  if (!res?.ok) {
-    console.error('Aanmelding versturen mislukt', res?.status, await res?.text().catch(() => ''))
+  const sent = await sendEmail(apiKey, {
+    from,
+    to: recipients,
+    ...buildLeadEmail(lead),
+    ...(lead.email ? { reply_to: lead.email } : {}),
+  })
+  if (!sent) {
     return NextResponse.json({ error: 'send_failed' }, { status: 502 })
   }
 
+  // Bevestiging aan de leerling. Mislukt die, dan is de aanmelding zelf wel binnen.
+  if (lead.email && process.env.CONTACT_CONFIRMATION !== 'off') {
+    await sendEmail(apiKey, {
+      from,
+      to: [lead.email],
+      ...buildConfirmationEmail(lead),
+      reply_to: recipients[0],
+    })
+  }
+
   return NextResponse.json({ ok: true })
+}
+
+type Email = { from: string; to: string[]; subject: string; html: string; text: string; reply_to?: string }
+
+async function sendEmail(apiKey: string, email: Email) {
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(email),
+  }).catch(() => null)
+
+  if (!res?.ok) {
+    console.error('E-mail versturen mislukt', email.subject, res?.status, await res?.text().catch(() => ''))
+    return false
+  }
+  return true
 }

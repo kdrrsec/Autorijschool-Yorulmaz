@@ -52,7 +52,7 @@ Het aanmeld- en contactformulier stuurt een opgemaakte e-mail via [Resend](https
 | `CONTACT_TO_EMAIL` | `info@jouwdomein.nl` | Waar aanmeldingen binnenkomen (meerdere: komma-gescheiden) |
 | `CONTACT_FROM_EMAIL` | `Website Yorulmaz <website@jouwdomein.nl>` | Afzender op een bij Resend geverifieerd domein |
 
-Zonder eigen domein kan tijdelijk `Website Yorulmaz <onboarding@resend.dev>` als afzender; Resend bezorgt dan alleen op het e-mailadres van je Resend-account. Beantwoorden van de e-mail gaat direct naar de leerling (reply-to). Zolang de variabelen ontbreken, valt het formulier terug op WhatsApp. Spam wordt beperkt met een verborgen veld, een minimale invultijd en een limiet per IP-adres.
+Zonder eigen domein kan tijdelijk `Website Yorulmaz <onboarding@resend.dev>` als afzender; Resend bezorgt dan alleen op het e-mailadres van je Resend-account. Beantwoorden van de e-mail gaat direct naar de leerling (reply-to). Vult de leerling een e-mailadres in, dan krijgt die automatisch een bevestigingsmail (zonder eigen tekst van de bezoeker, zodat het formulier niet voor spam te misbruiken is); uitzetten met `CONTACT_CONFIRMATION=off`. Zolang de variabelen ontbreken, valt het formulier terug op WhatsApp. Spam wordt beperkt met een verborgen veld, een minimale invultijd en een limiet per IP-adres.
 
 ## Cookies, Google Analytics en Meta-pixel
 
