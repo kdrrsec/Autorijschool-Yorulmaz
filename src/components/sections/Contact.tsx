@@ -35,7 +35,7 @@ export function Contact() {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="py-20 sm:py-28 lg:py-32">
-      <div className="container-site grid gap-14 lg:grid-cols-12 lg:gap-x-10">
+      <div className="container-site grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-12 lg:gap-x-10">
         <div className="lg:col-span-5">
           <Eyebrow>Contact</Eyebrow>
           <h2
@@ -51,7 +51,7 @@ export function Contact() {
           </p>
 
           <div className="mt-10" data-reveal>
-            <ul className="grid gap-3">
+            <ul className="grid grid-cols-[minmax(0,1fr)] gap-3">
               {rows.map((row, i) => (
                 <li key={row.label} className="flex items-center gap-4 rounded-2xl border border-line/70 bg-white p-3 pr-4 shadow-card">
                   <span className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl ${['bg-sky-deep text-blue', 'bg-signal-soft text-signal-deep', 'bg-mint text-wa', 'bg-rose text-amber-deep'][i]}`}>
@@ -64,7 +64,7 @@ export function Contact() {
                       {...(row.href.startsWith('http')
                         ? { target: '_blank', rel: 'noopener noreferrer' }
                         : {})}
-                      className="min-w-0 truncate font-medium underline decoration-ink/20 underline-offset-4 transition-colors hover:decoration-ink"
+                      className="min-w-0 font-medium [overflow-wrap:anywhere] underline decoration-ink/20 underline-offset-4 transition-colors hover:decoration-ink"
                     >
                       {row.value}
                     </a>

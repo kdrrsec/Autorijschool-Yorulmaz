@@ -67,7 +67,7 @@ export const site = {
     phone: '06 19775900' as string | null,
     /** Internationaal zonder + of spaties, bijvoorbeeld "31612345678" */
     whatsapp: '31619775900' as string | null,
-    email: null as string | null,
+    email: 'info@autorijschoolyorulmaz.nl' as string | null,
     instagram: 'https://www.instagram.com/autorijschoolyorulmaz/' as string | null,
   },
 

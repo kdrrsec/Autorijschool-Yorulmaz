@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { nav, site, whatsappHref } from '@/content/site'
 import { Logo } from './Logo'
 import { CookieSettingsLink } from './CookieSettingsLink'
-import { ArrowRight, Instagram, WhatsApp } from './Icons'
+import { ArrowRight, Instagram, Mail, WhatsApp } from './Icons'
 import axaweb from '../../public/images/axaweb.png'
 
 export function Footer() {
@@ -65,6 +65,17 @@ export function Footer() {
                 WhatsApp
               </a>
             </li>
+            {site.contact.email && (
+              <li>
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="inline-flex min-h-10 items-center gap-3 break-all text-paper/80 transition-colors hover:text-paper"
+                >
+                  <Mail className="size-[1.1rem] shrink-0" />
+                  {site.contact.email}
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
