@@ -40,7 +40,7 @@ export function MobileCtaBar() {
     >
       <div className="grid grid-cols-[1fr_auto] gap-2">
         <Link
-          href="/#aanvragen"
+          href="/aanmelden"
           className="flex min-h-12 items-center justify-center rounded-xl bg-ink text-[0.95rem] font-semibold text-paper"
         >
           Plan je les

@@ -117,19 +117,38 @@ export const site = {
   },
 }
 
+/**
+ * Onderdelen van de homepage met een eigen adres, bijvoorbeeld /tarieven.
+ * Sleutel = adres, waarde = id van het onderdeel op de pagina.
+ */
+export const sections = {
+  rijlessen: { id: 'rijlessen', title: 'Rijlessen' },
+  tarieven: { id: 'tarieven', title: 'Tarieven' },
+  'over-ons': { id: 'over-ons', title: 'Over ons' },
+  faq: { id: 'faq', title: 'Veelgestelde vragen' },
+  contact: { id: 'contact', title: 'Contact' },
+  aanmelden: { id: 'aanvragen', title: 'Aanmelden' },
+} as const
+
+export type SectionSlug = keyof typeof sections
+
+export function isSection(slug: string): slug is SectionSlug {
+  return Object.hasOwn(sections, slug)
+}
+
 /** Menu in dezelfde volgorde als de secties op de pagina. Het logo gaat naar boven. */
 export const nav = [
-  { href: '/#rijlessen', label: 'Rijlessen' },
-  { href: '/#tarieven', label: 'Tarieven' },
-  { href: '/#over-ons', label: 'Over ons' },
-  { href: '/#faq', label: 'FAQ' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/rijlessen', label: 'Rijlessen' },
+  { href: '/tarieven', label: 'Tarieven' },
+  { href: '/over-ons', label: 'Over ons' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 /** Link naar WhatsApp, of naar het contactblok zolang er geen nummer is. */
 export function whatsappHref(message?: string) {
   const number = site.contact.whatsapp
-  if (!number) return '/#contact'
+  if (!number) return '/contact'
   const text = message ? `?text=${encodeURIComponent(message)}` : ''
   return `https://wa.me/${number}${text}`
 }

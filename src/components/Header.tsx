@@ -74,7 +74,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/#aanvragen"
+            href="/aanmelden"
             className="group hidden min-h-11 items-center gap-2 rounded-xl bg-signal px-5 text-[0.925rem] font-semibold text-white transition-colors hover:bg-signal-deep sm:inline-flex"
           >
             Plan je les
@@ -143,7 +143,7 @@ export function Header() {
           <div className="mt-auto pt-10 [@media(max-height:700px)]:pt-6">
             <div className="grid grid-cols-2 gap-3">
               <Link
-                href="/#aanvragen"
+                href="/aanmelden"
                 onClick={close}
                 className="flex min-h-13 items-center justify-center gap-2 rounded-xl bg-signal px-4 font-semibold text-white"
               >

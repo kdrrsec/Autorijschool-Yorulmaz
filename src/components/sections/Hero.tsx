@@ -61,7 +61,7 @@ export function Hero() {
               data-reveal
               style={{ '--reveal-delay': '240ms' } as React.CSSProperties}
             >
-              <Button href="/#tarieven">Bekijk tarieven</Button>
+              <Button href="/tarieven">Bekijk tarieven</Button>
               <Button href={whatsappHref(signupMessage)} variant="whatsapp" icon="whatsapp">
                 WhatsApp
               </Button>

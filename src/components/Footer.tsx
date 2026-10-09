@@ -19,7 +19,7 @@ export function Footer() {
             Rijschool in {site.region}.
           </p>
           <Link
-            href="/#aanvragen"
+            href="/aanmelden"
             className="group mt-8 inline-flex items-center gap-2 border-b border-paper/30 pb-1 font-semibold transition-colors hover:border-paper"
           >
             Plan je les

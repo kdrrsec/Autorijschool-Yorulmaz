@@ -13,7 +13,7 @@ export function Logo({
 }) {
   return (
     <Link
-      href="/#home"
+      href="/"
       onClick={onClick}
       aria-label="Autorijschool Yorulmaz, naar de homepage"
       className="inline-flex shrink-0 transition-opacity hover:opacity-90"

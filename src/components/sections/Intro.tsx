@@ -49,7 +49,7 @@ export function Intro() {
               Het doel is niet alleen slagen, maar daarna ook zelfstandig en veilig blijven rijden.
             </p>
             <Link
-              href="/#over-ons"
+              href="/over-ons"
               className="group mt-8 inline-flex items-center gap-2 border-b-2 border-signal pb-1 font-semibold transition-colors hover:border-navy"
             >
               Over Yorulmaz

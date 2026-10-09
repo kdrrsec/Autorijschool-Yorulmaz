@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { LegalPage } from '@/components/LegalPage'
 import { site } from '@/content/site'
 
@@ -46,7 +47,7 @@ export default function PrivacyPage() {
       <h2>Cookies en statistieken</h2>
       <p>
         Cookies voor statistieken en advertenties plaatsen we alleen met je toestemming. Welke dat
-        zijn en hoe je je keuze aanpast, lees je in ons <a href="/cookies">cookiebeleid</a>.
+        zijn en hoe je je keuze aanpast, lees je in ons <Link href="/cookies">cookiebeleid</Link>.
       </p>
 
       <h2>Hoe lang we gegevens bewaren</h2>

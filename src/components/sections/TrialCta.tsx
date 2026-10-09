@@ -27,7 +27,7 @@ export function TrialCta() {
                 Kies voor losse lessen of een voordelig pakket en plan je eerste rijles.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row" data-reveal>
-                <Button href="/#aanvragen" variant="signal">
+                <Button href="/aanmelden" variant="signal">
                   Plan je les
                 </Button>
                 <Button href={whatsappHref(signupMessage)} variant="whatsapp" icon="whatsapp">
