@@ -112,10 +112,13 @@ export function Header() {
           open ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
-        <div className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-signal/20 blur-3xl" aria-hidden />
-        <div className="pointer-events-none absolute -bottom-32 -left-24 size-80 rounded-full bg-navy-soft" aria-hidden />
+        {/* Versiering binnen het paneel houden, anders wordt het menu scrollbaar */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <div className="absolute -top-24 -right-24 size-72 rounded-full bg-signal/20 blur-3xl" />
+          <div className="absolute -bottom-32 -left-24 size-80 rounded-full bg-navy-soft" />
+        </div>
 
-        <nav aria-label="Mobiel menu" className="container-site relative flex min-h-full flex-col pt-6 pb-8">
+        <nav aria-label="Mobiel menu" className="container-site relative flex min-h-full flex-col pt-6 pb-8 [@media(max-height:700px)]:pt-3 [@media(max-height:700px)]:pb-5">
           <ul className="space-y-2">
             {nav.map((item, i) => (
               <li
@@ -126,7 +129,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={close}
-                  className="group flex items-center justify-between rounded-2xl px-4 py-4 text-white transition-colors hover:bg-white/5 active:bg-white/10"
+                  className="group flex items-center justify-between rounded-2xl px-4 py-4 text-white [@media(max-height:700px)]:py-2.5 transition-colors hover:bg-white/5 active:bg-white/10"
                 >
                   <span className="font-display text-[1.7rem] leading-none font-semibold tracking-tight">{item.label}</span>
                   <span className="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition-colors group-hover:bg-signal group-active:bg-signal">
@@ -137,7 +140,7 @@ export function Header() {
             ))}
           </ul>
 
-          <div className="mt-auto pt-10">
+          <div className="mt-auto pt-10 [@media(max-height:700px)]:pt-6">
             <div className="grid grid-cols-2 gap-3">
               <Link
                 href="/#aanvragen"

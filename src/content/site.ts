@@ -122,6 +122,7 @@ export const nav = [
   { href: '/#rijlessen', label: 'Rijlessen' },
   { href: '/#tarieven', label: 'Tarieven' },
   { href: '/#over-ons', label: 'Over ons' },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/#contact', label: 'Contact' },
 ]
 
