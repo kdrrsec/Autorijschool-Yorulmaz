@@ -33,6 +33,10 @@ export function drivingSchool() {
   if (phone) data.telephone = `+31${phone.replace(/\D/g, '').replace(/^0/, '')}`
   if (email) data.email = email
   if (instagram) data.sameAs = [instagram]
+  if (site.company.btw) data.vatID = site.company.btw
+  if (site.company.kvk) {
+    data.identifier = { '@type': 'PropertyValue', propertyID: 'KvK', value: site.company.kvk }
+  }
 
   const offers = [
     ...site.prices.map((p) => ({ name: p.label, price: p.amount })),

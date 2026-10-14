@@ -90,7 +90,16 @@ export function Footer() {
 
       <div className="border-t border-paper/10">
         <div className="container-site flex flex-col gap-3 py-6 text-sm text-paper/50 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-          <p>© {year} {site.name}</p>
+          <div className="space-y-1">
+            <p>© {year} {site.name}</p>
+            {(site.company.kvk || site.company.btw) && (
+              <p className="text-paper/40">
+                {[site.company.kvk && `KvK ${site.company.kvk}`, site.company.btw && `Btw ${site.company.btw}`]
+                  .filter(Boolean)
+                  .join(' · ')}
+              </p>
+            )}
+          </div>
           <a
             href="https://axaweb.nl"
             target="_blank"

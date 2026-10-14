@@ -71,6 +71,12 @@ export const site = {
     instagram: 'https://www.instagram.com/autorijschoolyorulmaz/' as string | null,
   },
 
+  /** Bedrijfsgegevens voor de footer en Google */
+  company: {
+    kvk: '42119165' as string | null,
+    btw: 'NL005510434B36' as string | null,
+  },
+
   /** Losse rijlessen */
   prices: [
     { label: 'Rijles van 60 minuten', minutes: 60, amount: 60 },
