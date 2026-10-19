@@ -42,7 +42,7 @@ export function Footer() {
 
         <nav aria-label="Lesgebied" className="lg:col-span-3">
           <p className="label text-paper/45">Lesgebied</p>
-          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-1">
+          <ul className="mt-5 grid grid-cols-1 gap-x-6 gap-y-1 min-[360px]:grid-cols-2 sm:grid-cols-1">
             {locations.map((l) => (
               <li key={l.slug}>
                 <Link href={`/${l.slug}`} className="inline-flex min-h-10 items-center text-paper/80 transition-colors hover:text-paper">

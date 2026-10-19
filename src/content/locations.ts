@@ -54,6 +54,16 @@ export const locations: Location[] = [
       `Bij ons krijg je persoonlijke begeleiding: rustig uitgelegd, op jouw tempo en met een duidelijk plan richting het examen.${fromText}`,
     ],
   },
+  {
+    slug: 'rijschool-zevenaar',
+    place: 'Zevenaar',
+    title: 'Rijschool Zevenaar | Rijlessen bij Autorijschool Yorulmaz',
+    description: `Rijbewijs halen in Zevenaar? Autorijschool Yorulmaz geeft persoonlijke rijlessen in Zevenaar en omgeving.${fromText} Meld je direct aan.`,
+    intro: [
+      `Wil je je rijbewijs halen in Zevenaar? Autorijschool Yorulmaz geeft ook rijles in Zevenaar. Vanuit ${site.city} zijn we zo bij je in de buurt.`,
+      `We kijken wat jij nodig hebt en bouwen de lessen stap voor stap op, van de eerste meters tot het examen. Rustig uitgelegd en op jouw tempo.${fromText}`,
+    ],
+  },
 ]
 
 export function locationBySlug(slug: string) {

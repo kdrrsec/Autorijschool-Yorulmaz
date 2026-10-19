@@ -54,7 +54,7 @@ export const site = {
   /** Vestigingsplaats van de rijschool */
   city: 'Giesbeek',
   /** Plaatsen waar les wordt gegeven */
-  areaServed: ['Doesburg', 'Giesbeek', 'Dieren', 'Doetinchem'],
+  areaServed: ['Doesburg', 'Giesbeek', 'Dieren', 'Doetinchem', 'Zevenaar'],
   region: 'Giesbeek, Doesburg en omgeving',
 
   /** Productie-URL. Zet NEXT_PUBLIC_SITE_URL in de hosting-omgeving. */
