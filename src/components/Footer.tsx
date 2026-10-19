@@ -12,8 +12,8 @@ export function Footer() {
 
   return (
     <footer className="bg-ink pb-24 text-paper sm:pb-0">
-      <div className="container-site grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-x-10">
-        <div className="lg:col-span-5">
+      <div className="container-site grid gap-12 py-16 sm:grid-cols-2 sm:py-20 lg:grid-cols-12 lg:gap-x-10">
+        <div className="lg:col-span-4">
           <Logo className="h-14 sm:h-16" />
           <p className="mt-6 max-w-xs text-paper/60">
             Rijschool in {site.region}.
@@ -27,9 +27,9 @@ export function Footer() {
           </Link>
         </div>
 
-        <nav aria-label="Footermenu" className="lg:col-span-3 lg:col-start-7">
+        <nav aria-label="Footermenu" className="lg:col-span-2 lg:col-start-5">
           <p className="label text-paper/45">Menu</p>
-          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-1 lg:grid-cols-1">
+          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-1">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="inline-flex min-h-10 items-center text-paper/80 transition-colors hover:text-paper">
@@ -37,6 +37,12 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Lesgebied" className="lg:col-span-3">
+          <p className="label text-paper/45">Lesgebied</p>
+          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-1">
             {locations.map((l) => (
               <li key={l.slug}>
                 <Link href={`/${l.slug}`} className="inline-flex min-h-10 items-center text-paper/80 transition-colors hover:text-paper">

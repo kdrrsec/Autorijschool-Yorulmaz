@@ -34,6 +34,26 @@ export const locations: Location[] = [
       `Bij ons krijg je persoonlijke begeleiding: we kijken wat jij nodig hebt en bouwen de lessen stap voor stap op, van de eerste meters tot het examen.${fromText}`,
     ],
   },
+  {
+    slug: 'rijschool-dieren',
+    place: 'Dieren',
+    title: 'Rijschool Dieren | Rijlessen bij Autorijschool Yorulmaz',
+    description: `Rijbewijs halen in Dieren? Autorijschool Yorulmaz geeft persoonlijke rijlessen in Dieren en omgeving.${fromText} Meld je direct aan.`,
+    intro: [
+      `Wil je je rijbewijs halen in Dieren? Autorijschool Yorulmaz geeft ook rijles in Dieren. Vanuit ${site.city} zijn we zo bij je, want Dieren ligt vlak bij Doesburg.`,
+      `We bouwen de lessen stap voor stap op, op jouw tempo en met een duidelijk plan richting het examen. Zo rijd je straks met vertrouwen de weg op.${fromText}`,
+    ],
+  },
+  {
+    slug: 'rijschool-doetinchem',
+    place: 'Doetinchem',
+    title: 'Rijschool Doetinchem | Rijlessen bij Autorijschool Yorulmaz',
+    description: `Rijlessen in Doetinchem bij Autorijschool Yorulmaz. Persoonlijke begeleiding, op jouw tempo naar je rijbewijs.${fromText} Meld je direct aan.`,
+    intro: [
+      `Ook in Doetinchem kun je bij Autorijschool Yorulmaz rijles nemen. We komen uit ${site.city} en geven les in Doetinchem en de omgeving.`,
+      `Bij ons krijg je persoonlijke begeleiding: rustig uitgelegd, op jouw tempo en met een duidelijk plan richting het examen.${fromText}`,
+    ],
+  },
 ]
 
 export function locationBySlug(slug: string) {
