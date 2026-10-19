@@ -1,4 +1,4 @@
-import { BadgeCheck, Car, Check, Sparkles } from 'lucide-react'
+import { BadgeCheck, Car, Check, Plus, Sparkles } from 'lucide-react'
 import { site, whatsappHref, type Package, type Price } from '@/content/site'
 import { Eyebrow } from '../Eyebrow'
 import { ArrowRight } from '../Icons'
@@ -81,6 +81,8 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
         pill: 'bg-white/10 text-paper',
         save: 'bg-[#34c77b]/15 text-[#6fe3a5]',
         dash: 'bg-white/25',
+        extraTile: 'border-white/25 text-paper/70',
+        extraChip: 'border-white/25 text-paper/80',
       }
     : {
         card: 'bg-white text-ink shadow-lift ring-1 ring-navy/5',
@@ -92,6 +94,8 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
         pill: 'bg-sky text-navy',
         save: 'bg-mint text-wa',
         dash: 'bg-navy/15',
+        extraTile: 'border-navy/20 text-navy/60',
+        extraChip: 'border-navy/20 text-navy',
       }
   const count = lessonCount(pkg)
   const rest = count ? pkg.title.replace(count, '').trim() : pkg.title
@@ -156,6 +160,20 @@ function PackageCard({ pkg, featured, delay }: { pkg: Package; featured: boolean
             </li>
           )
         })}
+        {pkg.extras?.map((extra) => (
+          <li key={extra.label} className="flex items-center gap-3.5">
+            <span className={`inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-dashed ${t.extraTile}`}>
+              <Plus className="size-4" strokeWidth={2.2} />
+            </span>
+            <span className="leading-tight">
+              <span className="block font-medium">{extra.label}</span>
+              <span className={`text-xs ${t.muted}`}>Optioneel, buiten het pakket</span>
+            </span>
+            <span className={`ml-auto shrink-0 rounded-lg border border-dashed px-2.5 py-1 text-sm tabular-nums ${t.extraChip}`}>
+              +{euro(extra.amount)}
+            </span>
+          </li>
+        ))}
       </ul>
 
       {/* Prijs */}

@@ -24,9 +24,13 @@ export function faqItems(): FaqItem[] {
       const loose = p.items.reduce((sum, i) => sum + i.amount, 0)
       return `${p.name}: ${p.title} inclusief praktijkexamen voor ${euro(p.price)} (${euro(loose - p.price)} voordeel)`
     })
+    const extras = packages[0].extras ?? []
+    const extrasText = extras.length
+      ? ` Optioneel kun je buiten het pakket ${extras.map((e) => `een ${e.label.toLowerCase()} (${euro(e.amount)})`).join(' en ')} bijboeken.`
+      : ''
     items.push({
       question: 'Welke lespakketten zijn er?',
-      answer: `${lines.join('. ')}. Het praktijkexamen van het CBR zit in elk pakket al inbegrepen.`,
+      answer: `${lines.join('. ')}. Het praktijkexamen van het CBR zit in elk pakket al inbegrepen.${extrasText}`,
     })
 
     const exam = packages[0].items.find((i) => /examen/i.test(i.label))

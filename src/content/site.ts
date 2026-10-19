@@ -25,6 +25,8 @@ export type Package = {
   items: { label: string; amount: number }[]
   /** Pakketprijs in euro's */
   price: number
+  /** Optioneel bij te boeken, buiten de pakketprijs en het voordeel */
+  extras?: { label: string; amount: number }[]
 }
 
 export type Review = {
@@ -93,6 +95,7 @@ export const site = {
         { label: 'Praktijkexamen', amount: 320 },
       ],
       price: 1499,
+      extras: [{ label: 'Tussentijdse toets', amount: 240 }],
     },
     {
       name: 'Pakket 2',
@@ -102,6 +105,7 @@ export const site = {
         { label: 'Praktijkexamen', amount: 320 },
       ],
       price: 2049,
+      extras: [{ label: 'Tussentijdse toets', amount: 240 }],
     },
   ] as Package[],
 
